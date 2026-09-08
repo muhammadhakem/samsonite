@@ -28,15 +28,11 @@
                             gray: '#F4F6F9',
                             dark: '#0F172A',
                             shopee: '#EE4D2D',
-                            tiktok: '#000000',
-                            tiktokPink: '#FE2C55',
-                            tiktokCyan: '#25F4EE'
                         }
                     },
                     boxShadow: {
                         'card': '0 4px 20px -2px rgba(0, 34, 68, 0.08)',
                         'card-hover': '0 12px 30px -4px rgba(0, 34, 68, 0.15)',
-                        'glow-orange': '0 0 20px rgba(255, 90, 0, 0.3)',
                     }
                 }
             }
@@ -74,43 +70,34 @@
             animation: livePulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
         }
 
-        .standard-promo-card {
-            background-color: #ffffff;
-            padding: 1.25rem;
-            border-radius: 1rem;
-            border: 1px solid #e2e8f0;
-            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
+        .promo-card {
+            transition: all 0.2s ease;
         }
-        .standard-promo-card .icon-wrap {
-            width: 3rem;
-            height: 3rem;
-            border-radius: 0.75rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 900;
-            font-size: 1.25rem;
-            flex-shrink: 0;
+        .promo-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px -8px rgba(0, 0, 0, 0.10);
         }
-        .standard-promo-card .label {
-            font-size: 0.75rem;
+
+        .voucher-pill {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.7rem;
             font-weight: 700;
-            text-transform: uppercase;
+            background: #f1f5f9;
+            color: #1e293b;
         }
-        .standard-promo-card .amount {
-            font-size: 1.5rem;
-            font-weight: 900;
-            color: #0f172a;
-            margin-top: 0.25rem;
+        .voucher-pill.highlight {
+            background: #fef3c7;
+            color: #92400e;
         }
-        .standard-promo-card .detail {
-            font-size: 0.75rem;
-            color: #475569;
-            font-weight: 500;
-            margin-top: 0.25rem;
+        .voucher-pill.exclude {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+        .voucher-pill.approved {
+            background: #d1fae5;
+            color: #065f46;
         }
 
         .table-wrapper {
@@ -126,19 +113,11 @@
                 min-width: 500px;
             }
         }
-
-        .promo-card {
-            transition: all 0.2s ease;
-        }
-        .promo-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 30px -8px rgba(0, 0, 0, 0.10);
-        }
     </style>
 </head>
 <body class="bg-slate-100 text-slate-800 antialiased font-sans min-h-screen pb-20">
 
-    <!-- Top Header Navigation -->
+    <!-- ─── HEADER ─── -->
     <header class="sticky top-0 z-40 bg-at-navy text-white shadow-lg border-b border-slate-700">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex flex-wrap items-center justify-between gap-3">
             <div class="flex items-center space-x-3">
@@ -153,7 +132,7 @@
                             <span class="w-1.5 h-1.5 rounded-full bg-red-500 mr-1 live-dot"></span> LIVE
                         </span>
                     </h1>
-                    <p class="text-[10px] sm:text-xs text-slate-300 hidden sm:block">Team reference hub · All active promotions in one place</p>
+                    <p class="text-[10px] sm:text-xs text-slate-300 hidden sm:block">Team reference hub · All active Shopee promotions in one place</p>
                 </div>
             </div>
 
@@ -172,31 +151,25 @@
         </div>
     </header>
 
-    <!-- Sticky Platform Control Bar -->
-    <div class="sticky top-[57px] z-30 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm py-2.5 transition-all">
+    <!-- ─── SHOPEE BADGE ─── -->
+    <div class="sticky top-[57px] z-30 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm py-2.5">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-3">
-
             <div class="flex items-center bg-slate-100 p-1 rounded-2xl border border-slate-200 w-full md:w-auto shadow-inner">
-                <button id="btn-platform-shopee" onclick="switchPlatform('shopee')" class="flex-1 md:flex-none flex items-center justify-center space-x-2 px-4 sm:px-6 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all duration-200 bg-at-shopee text-white shadow-md">
+                <div class="flex-1 md:flex-none flex items-center justify-center space-x-2 px-4 sm:px-6 py-2 rounded-xl text-xs sm:text-sm font-bold bg-at-shopee text-white shadow-md">
                     <i class="fa-solid fa-bag-shopping"></i>
                     <span>SHOPEE</span>
                     <span class="text-[10px] bg-white/20 px-1.5 py-0.5 rounded-full uppercase">Primary</span>
-                </button>
-                <button id="btn-platform-tiktok" onclick="switchPlatform('tiktok')" class="flex-1 md:flex-none flex items-center justify-center space-x-2 px-4 sm:px-6 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all duration-200 text-slate-600 hover:text-slate-900">
-                    <i class="fa-brands fa-tiktok"></i>
-                    <span>TIKTOK</span>
-                </button>
+                </div>
             </div>
-
             <div class="hidden md:block w-72"></div>
         </div>
     </div>
 
-    <!-- MAIN DASHBOARD CONTENT -->
+    <!-- ─── MAIN CONTENT ─── -->
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-4 sm:mt-6 space-y-8 sm:space-y-10">
 
-        <!-- 1. HERO / QUICK SUMMARY SECTION -->
-        <section id="hero-summary-section" class="bg-gradient-to-br from-at-navy via-slate-900 to-at-blue text-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 shadow-card relative overflow-hidden">
+        <!-- HERO SUMMARY -->
+        <section class="bg-gradient-to-br from-at-navy via-slate-900 to-at-blue text-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 shadow-card relative overflow-hidden">
             <div class="absolute -right-20 -bottom-20 opacity-10 pointer-events-none">
                 <i class="fa-solid fa-suitcase text-[150px] sm:text-[200px] lg:text-[240px]"></i>
             </div>
@@ -211,8 +184,8 @@
                         </p>
                     </div>
                     <div class="flex items-center space-x-2">
-                        <span id="platform-indicator-badge" class="px-2 sm:px-3 py-1 bg-at-shopee text-white text-[10px] sm:text-xs font-bold rounded-full shadow-sm">
-                            Viewing: SHOPEE PLAN
+                        <span class="px-2 sm:px-3 py-1 bg-at-shopee text-white text-[10px] sm:text-xs font-bold rounded-full shadow-sm">
+                            SHOPEE PLAN
                         </span>
                     </div>
                 </div>
@@ -298,9 +271,10 @@
             </div>
         </section>
 
-        <!-- 2. SHOPEE PROMO PLAN CONTAINER -->
-        <div id="shopee-plan-container" class="space-y-8 transition-all duration-300">
+        <!-- ─── SHOPEE PLAN ─── -->
+        <div class="space-y-8">
 
+            <!-- Date Tabs -->
             <div class="flex flex-col md:flex-row md:items-center justify-between border-b-2 border-at-shopee pb-3 gap-3">
                 <div class="flex items-center space-x-3">
                     <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-2xl bg-at-shopee text-white flex items-center justify-center font-black text-base sm:text-xl shadow-md">
@@ -308,22 +282,22 @@
                     </div>
                     <div>
                         <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight">SHOPEE PROMO PLAN</h2>
-                        <p class="text-[10px] sm:text-xs text-slate-500">Samsonite official campaign mechanics & seller vouchers</p>
+                        <p class="text-[10px] sm:text-xs text-slate-500">Samsonite official campaign mechanics &amp; seller vouchers</p>
                     </div>
                 </div>
 
                 <div class="flex items-center bg-slate-200 p-1 rounded-2xl self-start md:self-auto overflow-x-auto w-full md:w-auto">
-                    <button id="shopee-tab-d1" onclick="switchShopeeDate('6-8-9')" class="px-3 sm:px-4 py-1.5 sm:py-2 text-[10px] sm:text-xs md:text-sm font-bold rounded-xl transition-all bg-white text-at-shopee shadow-sm whitespace-nowrap">
+                    <button id="tab-d1" onclick="switchDate('6-8-9')" class="px-3 sm:px-4 py-1.5 sm:py-2 text-[10px] sm:text-xs md:text-sm font-bold rounded-xl transition-all bg-white text-at-shopee shadow-sm whitespace-nowrap">
                         <i class="fa-regular fa-calendar-days mr-1"></i> 6, 8–9 SEPT
                     </button>
-                    <button id="shopee-tab-d2" onclick="switchShopeeDate('7-10-11')" class="px-3 sm:px-4 py-1.5 sm:py-2 text-[10px] sm:text-xs md:text-sm font-bold rounded-xl transition-all text-slate-600 hover:text-slate-900 whitespace-nowrap">
+                    <button id="tab-d2" onclick="switchDate('7-10-11')" class="px-3 sm:px-4 py-1.5 sm:py-2 text-[10px] sm:text-xs md:text-sm font-bold rounded-xl transition-all text-slate-600 hover:text-slate-900 whitespace-nowrap">
                         <i class="fa-regular fa-calendar-check mr-1"></i> 7, 10–11 SEPT
                     </button>
                 </div>
             </div>
 
-            <!-- HERO BUNDLE: MODUS + OCTOLITE -->
-            <section id="bundle-section" class="promo-card bg-gradient-to-r from-orange-50 via-white to-amber-50 rounded-2xl sm:rounded-3xl border-2 border-at-shopee/30 p-4 sm:p-6 shadow-md relative overflow-hidden" data-category="BUNDLE">
+            <!-- ─── BUNDLE: MODUS & OCTOLITE ─── -->
+            <section id="bundle-section" class="promo-card bg-gradient-to-r from-orange-50 via-white to-amber-50 rounded-2xl sm:rounded-3xl border-2 border-at-shopee/30 p-4 sm:p-6 shadow-md relative overflow-hidden">
                 <div class="absolute top-0 right-0 bg-at-shopee text-white text-[10px] font-black uppercase tracking-wider px-3 sm:px-4 py-1 rounded-bl-2xl shadow-sm">
                     🔥 BUNDLE PROMO · STARTS 7 AUG
                 </div>
@@ -384,42 +358,44 @@
                 </div>
             </section>
 
-            <!-- DYNAMIC DATE SECTION: SHOPEE 6, 8-9 SEPT -->
-            <div id="shopee-date-content-6-8-9" class="shopee-date-view space-y-6 sm:space-y-8">
+            <!-- ─── DATE-SPECIFIC CONTENT ─── -->
+
+            <!-- 6, 8–9 SEPT -->
+            <div id="date-content-6-8-9" class="date-view space-y-6 sm:space-y-8">
 
                 <div class="flex items-center space-x-2 text-slate-800 font-extrabold text-base sm:text-lg">
                     <span class="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-at-shopee"></span>
                     <h3>PROMOTIONS ACTIVE: <span class="text-at-shopee">6, 8–9 SEPT</span></h3>
                 </div>
 
-                <!-- NEW FOLLOWER + NEW BUYER -->
+                <!-- New Follower + New Buyer -->
                 <div id="vouchers-section" class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div class="standard-promo-card promo-card" data-category="NEW FOLLOWER">
-                        <div class="icon-wrap bg-emerald-100 text-emerald-600">🎟️</div>
-                        <div class="flex-1">
-                            <div class="flex items-center justify-between">
-                                <span class="label text-emerald-600">NEW FOLLOWER — BAU</span>
-                                <span class="text-[10px] bg-slate-100 text-slate-600 font-bold px-2 py-0.5 rounded">Storewide</span>
+                    <div class="promo-card bg-white p-4 sm:p-5 rounded-2xl border border-slate-200 shadow-sm flex items-start space-x-4">
+                        <div class="w-10 h-10 sm:w-14 sm:h-14 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-xl sm:text-2xl font-black shrink-0">🎟️</div>
+                        <div>
+                            <div class="flex items-center gap-2 flex-wrap">
+                                <span class="text-[10px] font-extrabold text-emerald-600 uppercase">NEW FOLLOWER — BAU</span>
+                                <span class="voucher-pill">Storewide</span>
                             </div>
-                            <div class="amount">RM30 OFF</div>
-                            <p class="detail">Min. Spend: <strong>RM300</strong> · Storewide</p>
+                            <div class="text-2xl sm:text-3xl font-black text-slate-900 mt-1">RM30 OFF</div>
+                            <p class="text-[10px] sm:text-xs text-slate-500">Min. Spend: <strong>RM300</strong> · Storewide</p>
                         </div>
                     </div>
 
-                    <div class="standard-promo-card promo-card" data-category="NEW BUYER">
-                        <div class="icon-wrap bg-emerald-100 text-emerald-600">👤</div>
-                        <div class="flex-1">
-                            <div class="flex items-center justify-between">
-                                <span class="label text-emerald-600">NEW BUYER VOUCHER</span>
-                                <span class="text-[10px] bg-red-100 text-red-600 font-bold px-2 py-0.5 rounded">Exclude VB</span>
+                    <div class="promo-card bg-white p-4 sm:p-5 rounded-2xl border border-slate-200 shadow-sm flex items-start space-x-4">
+                        <div class="w-10 h-10 sm:w-14 sm:h-14 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-xl sm:text-2xl font-black shrink-0">👤</div>
+                        <div>
+                            <div class="flex items-center gap-2 flex-wrap">
+                                <span class="text-[10px] font-extrabold text-emerald-600 uppercase">NEW BUYER</span>
+                                <span class="voucher-pill exclude">Exclude VB</span>
                             </div>
-                            <div class="amount">RM20 nms</div>
-                            <p class="detail">No min spend · <strong>Excludes VB</strong></p>
+                            <div class="text-2xl sm:text-3xl font-black text-slate-900 mt-1">RM20 off</div>
+                            <p class="text-[10px] sm:text-xs text-slate-500">No min spend · <strong>Excludes VB</strong></p>
                         </div>
                     </div>
                 </div>
 
-                <!-- SELLER VC + COFUND + PLATFORM -->
+                <!-- Vouchers: Seller VC + Cofund + Platform -->
                 <div class="space-y-3">
                     <h4 class="text-xs sm:text-sm font-extrabold text-slate-700 uppercase tracking-wider flex items-center gap-2">
                         <i class="fa-solid fa-tags text-at-shopee"></i> VOUCHER CODES (6, 8–9 SEPT)
@@ -427,11 +403,11 @@
 
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                         <!-- Seller VC 9% -->
-                        <div class="promo-card bg-gradient-to-b from-white to-slate-50 p-4 sm:p-5 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between" data-category="VOUCHER">
+                        <div class="promo-card bg-white p-4 sm:p-5 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
                             <div>
                                 <div class="flex items-center justify-between text-[10px] font-bold text-slate-500 mb-2">
                                     <span>SELLER VC</span>
-                                    <span class="bg-slate-200 text-slate-700 px-2 py-0.5 rounded text-[10px]">No Min Spend</span>
+                                    <span class="voucher-pill">No Min Spend</span>
                                 </div>
                                 <div class="text-2xl sm:text-3xl font-black text-slate-900">9% OFF</div>
                                 <div class="mt-3 p-2.5 bg-red-50 rounded-xl border border-red-100 text-xs">
@@ -442,11 +418,11 @@
                         </div>
 
                         <!-- Cofund 10% -->
-                        <div class="promo-card bg-gradient-to-b from-white to-amber-50/40 p-4 sm:p-5 rounded-2xl border-2 border-amber-300 shadow-sm flex flex-col justify-between" data-category="VOUCHER">
+                        <div class="promo-card bg-white p-4 sm:p-5 rounded-2xl border-2 border-amber-300 shadow-sm flex flex-col justify-between">
                             <div>
                                 <div class="flex items-center justify-between text-[10px] font-bold text-amber-700 mb-2">
                                     <span>COFUND VC</span>
-                                    <span class="bg-amber-100 text-amber-800 px-2 py-0.5 rounded text-[10px]">Shopee co-fund</span>
+                                    <span class="voucher-pill">Shopee co-fund</span>
                                 </div>
                                 <div class="text-2xl sm:text-3xl font-black text-amber-600">10% OFF</div>
                                 <div class="mt-2 text-xs space-y-1">
@@ -458,11 +434,11 @@
                         </div>
 
                         <!-- Cofund 15% -->
-                        <div class="promo-card bg-gradient-to-b from-white to-amber-50/40 p-4 sm:p-5 rounded-2xl border-2 border-amber-300 shadow-sm flex flex-col justify-between" data-category="VOUCHER">
+                        <div class="promo-card bg-white p-4 sm:p-5 rounded-2xl border-2 border-amber-300 shadow-sm flex flex-col justify-between">
                             <div>
                                 <div class="flex items-center justify-between text-[10px] font-bold text-amber-700 mb-2">
                                     <span>COFUND VC</span>
-                                    <span class="bg-amber-100 text-amber-800 px-2 py-0.5 rounded text-[10px]">Shopee co-fund</span>
+                                    <span class="voucher-pill">Shopee co-fund</span>
                                 </div>
                                 <div class="text-2xl sm:text-3xl font-black text-amber-600">15% OFF</div>
                                 <div class="mt-2 text-xs space-y-1">
@@ -476,11 +452,11 @@
 
                     <!-- Cofund 20% + Platform VC -->
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-                        <div class="promo-card bg-gradient-to-b from-white to-orange-50 p-4 sm:p-5 rounded-2xl border-2 border-at-shopee/40 shadow-sm flex flex-col justify-between" data-category="VOUCHER">
+                        <div class="promo-card bg-white p-4 sm:p-5 rounded-2xl border-2 border-at-shopee/40 shadow-sm flex flex-col justify-between">
                             <div>
                                 <div class="flex items-center justify-between text-[10px] font-bold text-at-shopee mb-2">
                                     <span>COFUND VC</span>
-                                    <span class="bg-orange-100 text-at-shopee px-2 py-0.5 rounded text-[10px]">High Value</span>
+                                    <span class="voucher-pill highlight">High Value</span>
                                 </div>
                                 <div class="text-2xl sm:text-3xl font-black text-at-shopee">20% OFF</div>
                                 <div class="mt-2 text-xs space-y-1">
@@ -491,11 +467,11 @@
                             </div>
                         </div>
 
-                        <div class="promo-card bg-emerald-50/60 p-4 sm:p-5 rounded-2xl border-2 border-emerald-300 shadow-sm flex flex-col justify-between" data-category="VOUCHER">
+                        <div class="promo-card bg-emerald-50/60 p-4 sm:p-5 rounded-2xl border-2 border-emerald-300 shadow-sm flex flex-col justify-between">
                             <div>
                                 <div class="flex items-center justify-between">
                                     <span class="text-[10px] font-bold text-emerald-700 uppercase">PLATFORM VC</span>
-                                    <span class="bg-emerald-600 text-white font-black text-[10px] px-2.5 py-0.5 rounded-full shadow-sm">APPROVED</span>
+                                    <span class="voucher-pill approved">APPROVED</span>
                                 </div>
                                 <div class="text-2xl sm:text-3xl font-black text-slate-900 mt-2">RM15 nms</div>
                                 <div class="text-[10px] sm:text-xs text-slate-600 font-bold mt-1">Storewide</div>
@@ -507,12 +483,10 @@
                     </div>
                 </div>
 
-                <!-- FLEXI COMBO + FREE SHIPPING -->
+                <!-- Flexi Combo + Free Shipping -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div id="flexi-section" class="promo-card bg-white p-4 sm:p-5 rounded-2xl border border-slate-200 shadow-sm flex items-center space-x-4" data-category="FLEXI COMBO">
-                        <div class="w-10 h-10 sm:w-14 sm:h-14 rounded-2xl bg-sky-100 text-sky-600 flex items-center justify-center text-xl sm:text-2xl font-black shrink-0">
-                            📦
-                        </div>
+                    <div id="flexi-section" class="promo-card bg-white p-4 sm:p-5 rounded-2xl border border-slate-200 shadow-sm flex items-center space-x-4">
+                        <div class="w-10 h-10 sm:w-14 sm:h-14 rounded-2xl bg-sky-100 text-sky-600 flex items-center justify-center text-xl sm:text-2xl font-black shrink-0">📦</div>
                         <div>
                             <span class="text-[10px] font-extrabold text-sky-600 uppercase">FLEXI COMBO</span>
                             <div class="text-lg sm:text-2xl font-black text-slate-900">BUY 2 GET 9% OFF</div>
@@ -520,10 +494,8 @@
                         </div>
                     </div>
 
-                    <div id="shipping-section" class="promo-card bg-white p-4 sm:p-5 rounded-2xl border border-slate-200 shadow-sm flex items-start space-x-4" data-category="FREE SHIPPING">
-                        <div class="w-10 h-10 sm:w-14 sm:h-14 rounded-2xl bg-purple-100 text-purple-600 flex items-center justify-center text-xl sm:text-2xl font-black shrink-0">
-                            🚚
-                        </div>
+                    <div id="shipping-section" class="promo-card bg-white p-4 sm:p-5 rounded-2xl border border-slate-200 shadow-sm flex items-start space-x-4">
+                        <div class="w-10 h-10 sm:w-14 sm:h-14 rounded-2xl bg-purple-100 text-purple-600 flex items-center justify-center text-xl sm:text-2xl font-black shrink-0">🚚</div>
                         <div class="flex-1">
                             <span class="text-[10px] font-extrabold text-purple-600 uppercase">SHOPEE NATIONWIDE</span>
                             <div class="text-base sm:text-lg font-black text-slate-900 mt-0.5">Free Shipping</div>
@@ -540,42 +512,42 @@
 
             </div>
 
-            <!-- SHOPEE 7, 10–11 SEPT -->
-            <div id="shopee-date-content-7-10-11" class="shopee-date-view space-y-6 sm:space-y-8 hidden">
+            <!-- 7, 10–11 SEPT -->
+            <div id="date-content-7-10-11" class="date-view space-y-6 sm:space-y-8 hidden">
 
                 <div class="flex items-center space-x-2 text-slate-800 font-extrabold text-base sm:text-lg">
                     <span class="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-at-shopee"></span>
                     <h3>PROMOTIONS ACTIVE: <span class="text-at-shopee">7, 10–11 SEPT</span></h3>
                 </div>
 
-                <!-- NEW FOLLOWER + NEW BUYER -->
+                <!-- New Follower + New Buyer -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div class="standard-promo-card promo-card" data-category="NEW FOLLOWER">
-                        <div class="icon-wrap bg-emerald-100 text-emerald-600">🎟️</div>
-                        <div class="flex-1">
-                            <div class="flex items-center justify-between">
-                                <span class="label text-emerald-600">NEW FOLLOWER — BAU</span>
-                                <span class="text-[10px] bg-slate-100 text-slate-600 font-bold px-2 py-0.5 rounded">Storewide</span>
+                    <div class="promo-card bg-white p-4 sm:p-5 rounded-2xl border border-slate-200 shadow-sm flex items-start space-x-4">
+                        <div class="w-10 h-10 sm:w-14 sm:h-14 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-xl sm:text-2xl font-black shrink-0">🎟️</div>
+                        <div>
+                            <div class="flex items-center gap-2 flex-wrap">
+                                <span class="text-[10px] font-extrabold text-emerald-600 uppercase">NEW FOLLOWER — BAU</span>
+                                <span class="voucher-pill">Storewide</span>
                             </div>
-                            <div class="amount">RM30 OFF</div>
-                            <p class="detail">Min. Spend: <strong>RM300</strong> · Storewide</p>
+                            <div class="text-2xl sm:text-3xl font-black text-slate-900 mt-1">RM30 OFF</div>
+                            <p class="text-[10px] sm:text-xs text-slate-500">Min. Spend: <strong>RM300</strong> · Storewide</p>
                         </div>
                     </div>
 
-                    <div class="standard-promo-card promo-card" data-category="NEW BUYER">
-                        <div class="icon-wrap bg-emerald-100 text-emerald-600">👤</div>
-                        <div class="flex-1">
-                            <div class="flex items-center justify-between">
-                                <span class="label text-emerald-600">NEW BUYER VOUCHER</span>
-                                <span class="text-[10px] bg-red-100 text-red-600 font-bold px-2 py-0.5 rounded">Exclude VB</span>
+                    <div class="promo-card bg-white p-4 sm:p-5 rounded-2xl border border-slate-200 shadow-sm flex items-start space-x-4">
+                        <div class="w-10 h-10 sm:w-14 sm:h-14 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-xl sm:text-2xl font-black shrink-0">👤</div>
+                        <div>
+                            <div class="flex items-center gap-2 flex-wrap">
+                                <span class="text-[10px] font-extrabold text-emerald-600 uppercase">NEW BUYER</span>
+                                <span class="voucher-pill exclude">Exclude VB</span>
                             </div>
-                            <div class="amount">RM20 nms</div>
-                            <p class="detail">No min spend · <strong>Excludes VB</strong></p>
+                            <div class="text-2xl sm:text-3xl font-black text-slate-900 mt-1">RM20 nms</div>
+                            <p class="text-[10px] sm:text-xs text-slate-500">No min spend · <strong>Excludes VB</strong></p>
                         </div>
                     </div>
                 </div>
 
-                <!-- VOUCHERS: 5% Seller VC + Cofund + Platform -->
+                <!-- Vouchers: Seller VC 5% + Cofund + Platform -->
                 <div class="space-y-3">
                     <h4 class="text-xs sm:text-sm font-extrabold text-slate-700 uppercase tracking-wider flex items-center gap-2">
                         <i class="fa-solid fa-tags text-at-shopee"></i> VOUCHER CODES (7, 10–11 SEPT)
@@ -583,11 +555,11 @@
 
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                         <!-- Seller VC 5% -->
-                        <div class="promo-card bg-gradient-to-b from-white to-slate-50 p-4 sm:p-5 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between" data-category="VOUCHER">
+                        <div class="promo-card bg-white p-4 sm:p-5 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
                             <div>
                                 <div class="flex items-center justify-between text-[10px] font-bold text-slate-500 mb-2">
                                     <span>SELLER VC</span>
-                                    <span class="bg-slate-200 text-slate-700 px-2 py-0.5 rounded text-[10px]">No Min Spend</span>
+                                    <span class="voucher-pill">No Min Spend</span>
                                 </div>
                                 <div class="text-2xl sm:text-3xl font-black text-slate-900">5% OFF</div>
                                 <div class="mt-3 p-2.5 bg-red-50 rounded-xl border border-red-100 text-xs">
@@ -598,11 +570,11 @@
                         </div>
 
                         <!-- Cofund 10% -->
-                        <div class="promo-card bg-gradient-to-b from-white to-amber-50/40 p-4 sm:p-5 rounded-2xl border-2 border-amber-300 shadow-sm flex flex-col justify-between" data-category="VOUCHER">
+                        <div class="promo-card bg-white p-4 sm:p-5 rounded-2xl border-2 border-amber-300 shadow-sm flex flex-col justify-between">
                             <div>
                                 <div class="flex items-center justify-between text-[10px] font-bold text-amber-700 mb-2">
                                     <span>COFUND VC</span>
-                                    <span class="bg-amber-100 text-amber-800 px-2 py-0.5 rounded text-[10px]">Shopee co-fund</span>
+                                    <span class="voucher-pill">Shopee co-fund</span>
                                 </div>
                                 <div class="text-2xl sm:text-3xl font-black text-amber-600">10% OFF</div>
                                 <div class="mt-2 text-xs space-y-1">
@@ -614,11 +586,11 @@
                         </div>
 
                         <!-- Cofund 15% -->
-                        <div class="promo-card bg-gradient-to-b from-white to-amber-50/40 p-4 sm:p-5 rounded-2xl border-2 border-amber-300 shadow-sm flex flex-col justify-between" data-category="VOUCHER">
+                        <div class="promo-card bg-white p-4 sm:p-5 rounded-2xl border-2 border-amber-300 shadow-sm flex flex-col justify-between">
                             <div>
                                 <div class="flex items-center justify-between text-[10px] font-bold text-amber-700 mb-2">
                                     <span>COFUND VC</span>
-                                    <span class="bg-amber-100 text-amber-800 px-2 py-0.5 rounded text-[10px]">Shopee co-fund</span>
+                                    <span class="voucher-pill">Shopee co-fund</span>
                                 </div>
                                 <div class="text-2xl sm:text-3xl font-black text-amber-600">15% OFF</div>
                                 <div class="mt-2 text-xs space-y-1">
@@ -632,11 +604,11 @@
 
                     <!-- Cofund 20% + Platform VC -->
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-                        <div class="promo-card bg-gradient-to-b from-white to-orange-50 p-4 sm:p-5 rounded-2xl border-2 border-at-shopee/40 shadow-sm flex flex-col justify-between" data-category="VOUCHER">
+                        <div class="promo-card bg-white p-4 sm:p-5 rounded-2xl border-2 border-at-shopee/40 shadow-sm flex flex-col justify-between">
                             <div>
                                 <div class="flex items-center justify-between text-[10px] font-bold text-at-shopee mb-2">
                                     <span>COFUND VC</span>
-                                    <span class="bg-orange-100 text-at-shopee px-2 py-0.5 rounded text-[10px]">High Value</span>
+                                    <span class="voucher-pill highlight">High Value</span>
                                 </div>
                                 <div class="text-2xl sm:text-3xl font-black text-at-shopee">20% OFF</div>
                                 <div class="mt-2 text-xs space-y-1">
@@ -647,11 +619,11 @@
                             </div>
                         </div>
 
-                        <div class="promo-card bg-emerald-50/60 p-4 sm:p-5 rounded-2xl border-2 border-emerald-300 shadow-sm flex flex-col justify-between" data-category="VOUCHER">
+                        <div class="promo-card bg-emerald-50/60 p-4 sm:p-5 rounded-2xl border-2 border-emerald-300 shadow-sm flex flex-col justify-between">
                             <div>
                                 <div class="flex items-center justify-between">
                                     <span class="text-[10px] font-bold text-emerald-700 uppercase">PLATFORM VC</span>
-                                    <span class="bg-emerald-600 text-white font-black text-[10px] px-2.5 py-0.5 rounded-full shadow-sm">APPROVED</span>
+                                    <span class="voucher-pill approved">APPROVED</span>
                                 </div>
                                 <div class="text-2xl sm:text-3xl font-black text-slate-900 mt-2">RM15 nms</div>
                                 <div class="text-[10px] sm:text-xs text-slate-600 font-bold mt-1">Storewide</div>
@@ -663,12 +635,10 @@
                     </div>
                 </div>
 
-                <!-- FLEXI COMBO + FREE SHIPPING -->
+                <!-- Flexi Combo + Free Shipping -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div class="promo-card bg-white p-4 sm:p-5 rounded-2xl border border-slate-200 shadow-sm flex items-center space-x-4" data-category="FLEXI COMBO">
-                        <div class="w-10 h-10 sm:w-14 sm:h-14 rounded-2xl bg-sky-100 text-sky-600 flex items-center justify-center text-xl sm:text-2xl font-black shrink-0">
-                            📦
-                        </div>
+                    <div class="promo-card bg-white p-4 sm:p-5 rounded-2xl border border-slate-200 shadow-sm flex items-center space-x-4">
+                        <div class="w-10 h-10 sm:w-14 sm:h-14 rounded-2xl bg-sky-100 text-sky-600 flex items-center justify-center text-xl sm:text-2xl font-black shrink-0">📦</div>
                         <div>
                             <span class="text-[10px] font-extrabold text-sky-600 uppercase">FLEXI COMBO</span>
                             <div class="text-lg sm:text-2xl font-black text-slate-900">BUY 2 GET 9% OFF</div>
@@ -676,10 +646,8 @@
                         </div>
                     </div>
 
-                    <div class="promo-card bg-white p-4 sm:p-5 rounded-2xl border border-slate-200 shadow-sm flex items-start space-x-4" data-category="FREE SHIPPING">
-                        <div class="w-10 h-10 sm:w-14 sm:h-14 rounded-2xl bg-purple-100 text-purple-600 flex items-center justify-center text-xl sm:text-2xl font-black shrink-0">
-                            🚚
-                        </div>
+                    <div class="promo-card bg-white p-4 sm:p-5 rounded-2xl border border-slate-200 shadow-sm flex items-start space-x-4">
+                        <div class="w-10 h-10 sm:w-14 sm:h-14 rounded-2xl bg-purple-100 text-purple-600 flex items-center justify-center text-xl sm:text-2xl font-black shrink-0">🚚</div>
                         <div class="flex-1">
                             <span class="text-[10px] font-extrabold text-purple-600 uppercase">SHOPEE NATIONWIDE</span>
                             <div class="text-base sm:text-lg font-black text-slate-900 mt-0.5">Free Shipping</div>
@@ -696,13 +664,13 @@
 
             </div>
 
-            <!-- PRODUCT ELIGIBILITY MATRIX (Shopee) -->
+            <!-- ─── PRODUCT ELIGIBILITY MATRIX ─── -->
             <section class="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-card border border-slate-200 space-y-4 sm:space-y-6">
                 <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 pb-4">
                     <div>
                         <span class="text-[10px] sm:text-xs text-at-blue font-extrabold uppercase tracking-widest">PRODUCT COMPATIBILITY</span>
                         <h3 class="text-lg sm:text-2xl font-black text-slate-900">ELIGIBILITY MATRIX — SHOPEE</h3>
-                        <p class="text-[10px] sm:text-xs text-slate-500">Click any row for full details & selling tips</p>
+                        <p class="text-[10px] sm:text-xs text-slate-500">Quick lookup for which vouchers apply to each model</p>
                     </div>
                     <div class="text-[10px] sm:text-xs text-slate-500 flex items-center space-x-2">
                         <span class="inline-block w-2.5 h-2.5 rounded-full bg-emerald-500"></span> <span>✓ Eligible</span>
@@ -722,7 +690,7 @@
                                 <th class="p-2 sm:p-3 rounded-tr-xl">Notes</th>
                             </tr>
                         </thead>
-                        <tbody id="product-matrix-tbody-shopee" class="divide-y divide-slate-100 font-medium">
+                        <tbody id="product-matrix-tbody" class="divide-y divide-slate-100 font-medium">
                         </tbody>
                     </table>
                 </div>
@@ -730,216 +698,8 @@
 
         </div>
 
-        <!-- 3. TIKTOK PROMO PLAN -->
-        <div id="tiktok-plan-container" class="space-y-8 transition-all duration-300 hidden">
-
-            <div class="flex flex-col md:flex-row md:items-center justify-between border-b-2 border-black pb-3 gap-3">
-                <div class="flex items-center space-x-3">
-                    <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-2xl bg-black text-white flex items-center justify-center font-black text-base sm:text-xl shadow-md border border-slate-700">
-                        <i class="fa-brands fa-tiktok text-at-tiktokCyan"></i>
-                    </div>
-                    <div>
-                        <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight">TIKTOK PROMO PLAN</h2>
-                        <p class="text-[10px] sm:text-xs text-slate-500">Samsonite TikTok Shop promotions</p>
-                    </div>
-                </div>
-
-                <div class="flex items-center bg-slate-200 p-1 rounded-2xl self-start md:self-auto overflow-x-auto w-full md:w-auto">
-                    <button id="tiktok-tab-d1" onclick="switchTikTokDate('6-8-9')" class="px-3 sm:px-4 py-1.5 sm:py-2 text-[10px] sm:text-xs md:text-sm font-bold rounded-xl transition-all bg-black text-white shadow-sm whitespace-nowrap">
-                        <i class="fa-regular fa-calendar-days mr-1"></i> 6, 8–9 SEPT
-                    </button>
-                    <button id="tiktok-tab-d2" onclick="switchTikTokDate('7-10-11')" class="px-3 sm:px-4 py-1.5 sm:py-2 text-[10px] sm:text-xs md:text-sm font-bold rounded-xl transition-all text-slate-600 hover:text-slate-900 whitespace-nowrap">
-                        <i class="fa-regular fa-calendar-check mr-1"></i> 7, 10–11 SEPT
-                    </button>
-                </div>
-            </div>
-
-            <!-- TIKTOK BUNDLE -->
-            <section class="promo-card bg-gradient-to-r from-slate-900 via-black to-slate-800 text-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-xl relative overflow-hidden" data-category="BUNDLE">
-                <div class="absolute top-0 right-0 bg-at-tiktokPink text-white text-[10px] font-black uppercase tracking-wider px-3 sm:px-4 py-1 rounded-bl-2xl">
-                    TIKTOK SHOP · BUNDLE DEAL
-                </div>
-
-                <div class="flex flex-col lg:flex-row items-center justify-between gap-4 sm:gap-6">
-                    <div class="flex-1 space-y-3">
-                        <div class="inline-flex items-center space-x-2 bg-at-tiktokPink/20 text-at-tiktokPink px-2 sm:px-3 py-1 rounded-full text-[10px] sm:text-xs font-extrabold border border-at-tiktokPink/30">
-                            <i class="fa-brands fa-tiktok"></i>
-                            <span>MODUS + OCTOLITE BUNDLE</span>
-                        </div>
-                        <h3 class="text-2xl sm:text-3xl font-black text-white tracking-tight">BUY 2 OR 3 → <span class="text-at-tiktokCyan">SAVE 10% / 20%</span></h3>
-                        <p class="text-[10px] sm:text-xs text-slate-300">
-                            Starts <strong>7 August</strong> · MODUS + OCTOLITE combo
-                        </p>
-
-                        <div class="mt-4 p-3 sm:p-4 bg-white/10 rounded-2xl border border-white/10 flex flex-wrap items-center justify-center sm:justify-around gap-3 text-center">
-                            <div class="flex items-center space-x-2">
-                                <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-white/20 p-1 flex items-center justify-center">
-                                    <img src="https://www.samsonite.com.my/dw/image/v2/AAWQ_PRD/on/demandware.static/-/Sites-Samsonite/default/dw99ce6b53/images/modus-spinner-exp/hi-res/155621_1984_hi-res_FRONT34_1.jpg?sw=500&sh=750" alt="MODUS" class="max-h-full object-contain" onerror="this.parentElement.innerHTML='<span class=\'text-[10px] font-black text-white\'>MODUS</span>'">
-                                </div>
-                                <span class="text-slate-400">+</span>
-                                <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-white/20 p-1 flex items-center justify-center">
-                                    <img src="https://www.samsonite.com.my/dw/image/v2/AAWQ_PRD/on/demandware.static/-/Sites-Samsonite/default/dw29615182/images/octolite-neo-spinner-exp/hi-res/153629_1388_hi-res_FRONT34_1.jpg?sw=500&sh=750" alt="OCTOLITE" class="max-h-full object-contain" onerror="this.parentElement.innerHTML='<span class=\'text-[10px] font-black text-white\'>OCTOLITE</span>'">
-                                </div>
-                            </div>
-                            <div class="text-xl font-black text-slate-400">→</div>
-                            <div class="bg-at-tiktokPink px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl text-[10px] sm:text-xs font-black">
-                                BUY 2 = 10% · BUY 3 = 20%
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="w-full lg:w-48 xl:w-72 bg-white/10 rounded-2xl p-3 sm:p-4 border border-white/10 text-center flex flex-col items-center">
-                        <span class="text-[10px] font-bold text-at-tiktokCyan uppercase mb-2">Hero Pair</span>
-                        <div class="flex items-center justify-center space-x-2 my-2">
-                            <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-xl bg-white/20 p-1 flex items-center justify-center">
-                                <img src="https://www.samsonite.com.my/dw/image/v2/AAWQ_PRD/on/demandware.static/-/Sites-Samsonite/default/dw99ce6b53/images/modus-spinner-exp/hi-res/155621_1984_hi-res_FRONT34_1.jpg?sw=500&sh=750" alt="MODUS" class="max-h-full object-contain" onerror="this.parentElement.innerHTML='<span class=\'text-[10px] font-black text-white\'>MODUS</span>'">
-                            </div>
-                            <span class="text-slate-400 text-xl font-black">+</span>
-                            <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-xl bg-white/20 p-1 flex items-center justify-center">
-                                <img src="https://www.samsonite.com.my/dw/image/v2/AAWQ_PRD/on/demandware.static/-/Sites-Samsonite/default/dw29615182/images/octolite-neo-spinner-exp/hi-res/153629_1388_hi-res_FRONT34_1.jpg?sw=500&sh=750" alt="OCTOLITE" class="max-h-full object-contain" onerror="this.parentElement.innerHTML='<span class=\'text-[10px] font-black text-white\'>OCTOLITE</span>'">
-                            </div>
-                        </div>
-                        <span class="text-[10px] sm:text-xs font-extrabold text-white">MODUS + OCTOLITE</span>
-                    </div>
-                </div>
-            </section>
-
-            <!-- TIKTOK 6, 8-9 SEPT -->
-            <div id="tiktok-date-content-6-8-9" class="tiktok-date-view space-y-6 sm:space-y-8">
-                <div class="flex items-center space-x-2 text-slate-800 font-extrabold text-base sm:text-lg">
-                    <span class="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-black"></span>
-                    <h3>TIKTOK PROMOTIONS: <span class="text-slate-900">6, 8–9 SEPT</span></h3>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div class="standard-promo-card promo-card" data-category="NEW BUYER">
-                        <div class="icon-wrap bg-emerald-100 text-emerald-600">👤</div>
-                        <div class="flex-1">
-                            <span class="label text-emerald-600">NEW BUYER</span>
-                            <div class="amount">RM20 nms</div>
-                            <p class="detail">Excludes VB</p>
-                        </div>
-                    </div>
-
-                    <div class="promo-card bg-white p-4 sm:p-5 rounded-2xl border border-slate-200 shadow-sm" data-category="VOUCHER">
-                        <span class="text-[10px] font-bold text-slate-500 uppercase">SELLER VC</span>
-                        <div class="text-2xl sm:text-3xl font-black text-slate-900 mt-1">9% OFF</div>
-                        <p class="text-[10px] sm:text-xs text-slate-600 mt-1">No min spend · Normal price only</p>
-                    </div>
-
-                    <div class="promo-card bg-white p-4 sm:p-5 rounded-2xl border border-slate-200 shadow-sm" data-category="VOUCHER">
-                        <span class="text-[10px] font-bold text-slate-500 uppercase">PLATFORM VC</span>
-                        <div class="text-2xl sm:text-3xl font-black text-slate-900 mt-1">RM15 nms</div>
-                        <p class="text-[10px] sm:text-xs text-slate-600 mt-1">Storewide</p>
-                    </div>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div class="promo-card bg-white p-4 sm:p-5 rounded-2xl border border-slate-200 shadow-sm" data-category="FLEXI COMBO">
-                        <span class="text-[10px] font-extrabold text-sky-600 uppercase">FLEXI COMBO</span>
-                        <div class="text-lg sm:text-2xl font-black text-slate-900 mt-1">BUY 2 GET 9% OFF</div>
-                        <p class="text-[10px] sm:text-xs text-slate-500">Excludes VB</p>
-                    </div>
-
-                    <div class="promo-card bg-white p-4 sm:p-5 rounded-2xl border border-slate-200 shadow-sm flex items-start space-x-4" data-category="FREE SHIPPING">
-                        <div class="w-10 h-10 sm:w-14 sm:h-14 rounded-2xl bg-purple-100 text-purple-600 flex items-center justify-center text-xl sm:text-2xl font-black shrink-0">🚚</div>
-                        <div class="flex-1">
-                            <span class="text-[10px] font-extrabold text-purple-600 uppercase">FREE SHIPPING</span>
-                            <div class="text-base sm:text-lg font-black text-slate-900 mt-0.5">Min RM1,000</div>
-                            <p class="text-[10px] sm:text-xs text-slate-500">Capped at RM80 · Nationwide</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- TIKTOK 7, 10-11 SEPT -->
-            <div id="tiktok-date-content-7-10-11" class="tiktok-date-view space-y-6 sm:space-y-8 hidden">
-                <div class="flex items-center space-x-2 text-slate-800 font-extrabold text-base sm:text-lg">
-                    <span class="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-black"></span>
-                    <h3>TIKTOK PROMOTIONS: <span class="text-slate-900">7, 10–11 SEPT</span></h3>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div class="standard-promo-card promo-card" data-category="NEW BUYER">
-                        <div class="icon-wrap bg-emerald-100 text-emerald-600">👤</div>
-                        <div class="flex-1">
-                            <span class="label text-emerald-600">NEW BUYER</span>
-                            <div class="amount">RM20 nms</div>
-                            <p class="detail">Excludes VB</p>
-                        </div>
-                    </div>
-
-                    <div class="promo-card bg-white p-4 sm:p-5 rounded-2xl border border-slate-200 shadow-sm" data-category="VOUCHER">
-                        <span class="text-[10px] font-bold text-slate-500 uppercase">SELLER VC</span>
-                        <div class="text-2xl sm:text-3xl font-black text-slate-900 mt-1">5% OFF</div>
-                        <p class="text-[10px] sm:text-xs text-slate-600 mt-1">No min spend · Normal price only</p>
-                    </div>
-
-                    <div class="promo-card bg-white p-4 sm:p-5 rounded-2xl border border-slate-200 shadow-sm" data-category="VOUCHER">
-                        <span class="text-[10px] font-bold text-slate-500 uppercase">PLATFORM VC</span>
-                        <div class="text-2xl sm:text-3xl font-black text-slate-900 mt-1">RM15 nms</div>
-                        <p class="text-[10px] sm:text-xs text-slate-600 mt-1">Storewide</p>
-                    </div>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div class="promo-card bg-white p-4 sm:p-5 rounded-2xl border border-slate-200 shadow-sm" data-category="FLEXI COMBO">
-                        <span class="text-[10px] font-extrabold text-sky-600 uppercase">FLEXI COMBO</span>
-                        <div class="text-lg sm:text-2xl font-black text-slate-900 mt-1">BUY 2 GET 9% OFF</div>
-                        <p class="text-[10px] sm:text-xs text-slate-500">Excludes VB</p>
-                    </div>
-
-                    <div class="promo-card bg-white p-4 sm:p-5 rounded-2xl border border-slate-200 shadow-sm flex items-start space-x-4" data-category="FREE SHIPPING">
-                        <div class="w-10 h-10 sm:w-14 sm:h-14 rounded-2xl bg-purple-100 text-purple-600 flex items-center justify-center text-xl sm:text-2xl font-black shrink-0">🚚</div>
-                        <div class="flex-1">
-                            <span class="text-[10px] font-extrabold text-purple-600 uppercase">FREE SHIPPING</span>
-                            <div class="text-base sm:text-lg font-black text-slate-900 mt-0.5">Min RM1,000</div>
-                            <p class="text-[10px] sm:text-xs text-slate-500">Capped at RM80 · Nationwide</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- PRODUCT ELIGIBILITY MATRIX (TikTok) -->
-            <section class="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-card border border-slate-200 space-y-4 sm:space-y-6">
-                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 pb-4">
-                    <div>
-                        <span class="text-[10px] sm:text-xs text-black font-extrabold uppercase tracking-widest">PRODUCT COMPATIBILITY</span>
-                        <h3 class="text-lg sm:text-2xl font-black text-slate-900">ELIGIBILITY MATRIX — TIKTOK</h3>
-                        <p class="text-[10px] sm:text-xs text-slate-500">Click any row for full details & selling tips</p>
-                    </div>
-                    <div class="text-[10px] sm:text-xs text-slate-500 flex items-center space-x-2">
-                        <span class="inline-block w-2.5 h-2.5 rounded-full bg-emerald-500"></span> <span>✓ Eligible</span>
-                        <span class="inline-block w-2.5 h-2.5 rounded-full bg-slate-300 ml-2"></span> <span>— Excluded</span>
-                    </div>
-                </div>
-
-                <div class="bg-amber-50 border border-amber-200 rounded-xl p-2 sm:p-3 text-[10px] sm:text-xs text-amber-800 flex items-start gap-2">
-                    <i class="fa-solid fa-info-circle text-amber-500 mt-0.5"></i>
-                    <span><strong>Note:</strong> Cofund VC is not applicable on TikTok. Only Seller VC, Flexi Combo, and Bundle deals apply.</span>
-                </div>
-
-                <div class="table-wrapper">
-                    <table class="w-full text-left text-xs sm:text-sm border-collapse">
-                        <thead>
-                            <tr class="bg-slate-100 text-slate-700 text-[10px] sm:text-xs uppercase tracking-wider border-b border-slate-200">
-                                <th class="p-2 sm:p-3 rounded-tl-xl">Product</th>
-                                <th class="p-2 sm:p-3 text-center">Seller VC</th>
-                                <th class="p-2 sm:p-3 text-center">Flexi Combo</th>
-                                <th class="p-2 sm:p-3 text-center">Bundle</th>
-                                <th class="p-2 sm:p-3 rounded-tr-xl">Notes</th>
-                            </tr>
-                        </thead>
-                        <tbody id="product-matrix-tbody-tiktok" class="divide-y divide-slate-100 font-medium">
-                        </tbody>
-                    </table>
-                </div>
-            </section>
-
-        </div>
-
-        <!-- 4. EXCLUSIONS WARNING -->
-        <section id="exclusions-section" class="bg-red-50/80 border-2 border-red-300 rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-md space-y-4">
+        <!-- ─── EXCLUSIONS WARNING ─── -->
+        <section class="bg-red-50/80 border-2 border-red-300 rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-md space-y-4">
             <div class="flex items-center space-x-3 text-red-700">
                 <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-2xl bg-red-600 text-white flex items-center justify-center font-black text-base sm:text-xl shrink-0">⚠️</div>
                 <div>
@@ -982,92 +742,33 @@
             </div>
         </section>
 
-        <!-- 5. LIVESTREAM SCRIPT CHEAT SHEET -->
+        <!-- ─── LIVESTREAM SCRIPT CHEAT SHEET ─── -->
         <section class="bg-slate-900 text-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 shadow-xl space-y-4 sm:space-y-6">
             <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between border-b border-slate-800 pb-4 gap-3">
                 <div>
                     <span class="text-at-yellow font-extrabold text-[10px] sm:text-xs uppercase tracking-widest">LIVESTREAM SCRIPT CHEAT SHEET</span>
                     <h3 class="text-lg sm:text-2xl font-black text-white">QUICK SELLING GUIDE</h3>
-                    <p class="text-[10px] sm:text-xs text-slate-400 mt-1">Scripts for Shopee &amp; TikTok Live hosts — click "Copy" to use</p>
+                    <p class="text-[10px] sm:text-xs text-slate-400 mt-1">Ready-to-use scripts for Shopee Live hosts — click "Copy" to use</p>
                 </div>
                 <span class="text-[10px] sm:text-xs bg-slate-800 text-slate-300 px-3 py-1 rounded-full border border-slate-700 hidden sm:inline-block">
                     <i class="fa-regular fa-copy mr-1"></i> Copy &amp; use
                 </span>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
-                <div>
-                    <div class="flex items-center gap-2 mb-3 border-b border-slate-700 pb-2">
-                        <i class="fa-solid fa-bag-shopping text-at-shopee"></i>
-                        <span class="text-xs sm:text-sm font-extrabold text-at-shopee uppercase tracking-wider">Shopee Scripts</span>
-                    </div>
-                    <div class="grid grid-cols-1 gap-3" id="shopee-script-grid">
-                    </div>
-                </div>
-
-                <div>
-                    <div class="flex items-center gap-2 mb-3 border-b border-slate-700 pb-2">
-                        <i class="fa-brands fa-tiktok text-at-tiktokCyan"></i>
-                        <span class="text-xs sm:text-sm font-extrabold text-at-tiktokCyan uppercase tracking-wider">TikTok Scripts</span>
-                    </div>
-                    <div class="grid grid-cols-1 gap-3" id="tiktok-script-grid">
-                    </div>
+            <div class="grid grid-cols-1 gap-4">
+                <div id="shopee-script-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 </div>
             </div>
         </section>
 
     </main>
 
-    <!-- PRODUCT DETAIL MODAL -->
-    <div id="product-modal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm hidden flex items-center justify-center p-4 transition-all">
-        <div class="bg-white rounded-2xl sm:rounded-3xl max-w-lg w-full p-4 sm:p-6 shadow-2xl space-y-5 relative max-h-[90vh] overflow-y-auto">
-            <button onclick="closeProductModal()" class="absolute top-3 right-3 sm:top-4 sm:right-4 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-slate-100 text-slate-500 hover:bg-slate-200 flex items-center justify-center text-xs sm:text-sm font-bold">✕</button>
-
-            <div class="flex items-center space-x-4">
-                <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-slate-50 border border-slate-200 p-2 flex items-center justify-center shrink-0">
-                    <span id="modal-icon" class="text-3xl sm:text-4xl">🧳</span>
-                </div>
-                <div>
-                    <span id="modal-category" class="text-[10px] bg-at-blue/10 text-at-blue font-extrabold px-2 py-0.5 rounded uppercase">Samsonite</span>
-                    <h3 id="modal-title" class="text-lg sm:text-2xl font-black text-slate-900 mt-0.5">MODUS</h3>
-                    <div id="modal-tags" class="flex flex-wrap gap-1 mt-1"></div>
-                </div>
-            </div>
-
-            <div class="space-y-3 text-xs">
-                <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 space-y-1">
-                    <span class="font-bold text-slate-700 block text-[11px] uppercase">Voucher Eligibility:</span>
-                    <p id="modal-vouchers" class="text-slate-600 font-semibold"></p>
-                </div>
-
-                <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 space-y-1">
-                    <span class="font-bold text-slate-700 block text-[11px] uppercase">Active Campaigns:</span>
-                    <p id="modal-campaigns" class="text-slate-600 font-semibold"></p>
-                </div>
-
-                <div class="p-3 bg-red-50 rounded-xl border border-red-100 space-y-1">
-                    <span class="font-bold text-red-700 block text-[11px] uppercase">Exclusions &amp; Limits:</span>
-                    <p id="modal-exclusions" class="text-red-800 font-semibold"></p>
-                </div>
-
-                <div class="p-3 bg-amber-50 rounded-xl border border-amber-200 space-y-1">
-                    <span class="font-bold text-amber-800 block text-[11px] uppercase">Host Quick Pitch:</span>
-                    <p id="modal-pitch" class="text-slate-800 font-semibold italic"></p>
-                </div>
-            </div>
-
-            <div class="pt-2 text-right">
-                <button onclick="closeProductModal()" class="w-full bg-at-navy text-white font-bold py-2.5 rounded-xl hover:bg-slate-800 transition-all text-xs">Close Details</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Floating Back to Top -->
+    <!-- ─── FLOATING BACK TO TOP ─── -->
     <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="fixed bottom-6 right-6 z-40 bg-at-navy text-white w-10 h-10 sm:w-11 sm:h-11 rounded-full shadow-lg border border-slate-700 flex items-center justify-center hover:bg-at-blue transition-all">
         <i class="fa-solid fa-arrow-up"></i>
     </button>
 
-    <!-- FOOTER -->
+    <!-- ─── FOOTER ─── -->
     <footer class="mt-16 bg-at-navy text-white py-8 sm:py-10 border-t border-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
             <div class="flex items-center justify-center space-x-2">
@@ -1078,88 +779,63 @@
             <p class="text-[10px] sm:text-xs text-slate-400">Prepared for LIVE Operations Team, Livestream Hosts & Moderators.</p>
 
             <div class="pt-4 border-t border-slate-800/80 max-w-2xl mx-auto text-[10px] sm:text-[11px] text-slate-400 leading-relaxed">
-                <p>⚠️ <strong>Disclaimer:</strong> Always verify final voucher availability and campaign mechanics directly on the seller back-end before communicating deals to customers during live broadcasts.</p>
+                <p>⚠️ <strong>Disclaimer:</strong> Always verify final voucher availability and campaign mechanics directly on the Shopee seller back-end before communicating deals to customers during live broadcasts.</p>
             </div>
         </div>
     </footer>
 
-    <!-- APPLICATION LOGIC -->
+    <!-- ─── SCRIPT ─── -->
     <script>
-        // ─── SAMSONITE PRODUCT DATA ───
-        const samsoniteProducts = [{
+        // ─── PRODUCT DATA (Samsonite models) ───
+        const products = [{
             id: "modus",
             name: "MODUS",
             fullName: "Modus Spinner TSA",
-            icon: "🧳",
             sellerVc: true,
             cofundVc: true,
             flexiCombo: true,
             bundle: true,
-            notes: "Hero bundle item with OCTOLITE. Eligible for 10% / 20% bundle discount.",
-            vouchers: "Seller VC, Cofund VC (all tiers), Flexi Combo",
-            campaigns: "MODUS + OCTOLITE Bundle (Buy 2 → 10%, Buy 3 → 20%)",
-            exclusions: "None specific",
-            pitch: "Highlight the sleek design and durability. Perfect upsell with OCTOLITE!"
+            notes: "Hero bundle item with OCTOLITE. Eligible for 10% / 20% bundle discount."
         }, {
             id: "octolite",
             name: "OCTOLITE",
             fullName: "Octolite Spinner TSA",
-            icon: "🧳",
             sellerVc: true,
             cofundVc: true,
             flexiCombo: true,
             bundle: true,
-            notes: "Hero bundle item with MODUS. Eligible for 10% / 20% bundle discount.",
-            vouchers: "Seller VC, Cofund VC (all tiers), Flexi Combo",
-            campaigns: "MODUS + OCTOLITE Bundle (Buy 2 → 10%, Buy 3 → 20%)",
-            exclusions: "None specific",
-            pitch: "Lightweight and stylish. Pair with MODUS for instant bundle savings!"
+            notes: "Hero bundle item with MODUS. Eligible for 10% / 20% bundle discount."
         }, {
             id: "rinia",
             name: "RINIA",
             fullName: "Rinia 3PC Set TSA",
-            icon: "🧳",
             sellerVc: true,
             cofundVc: true,
             flexiCombo: true,
             bundle: false,
-            notes: "Eligible for Seller VC and Cofund VC.",
-            vouchers: "Seller VC, Cofund VC",
-            campaigns: "Flexi Combo (Buy 2 Get 9% OFF)",
-            exclusions: "None",
-            pitch: "Great family bundle value with 3-piece set!"
+            notes: "Eligible for Seller VC and Cofund VC."
         }, {
             id: "curio",
             name: "CURIO",
             fullName: "Curio Spinner TSA BO V2",
-            icon: "🧳",
             sellerVc: true,
             cofundVc: true,
             flexiCombo: true,
             bundle: false,
-            notes: "Best-selling icon. Eligible for Seller VC and Cofund VC.",
-            vouchers: "Seller VC, Cofund VC",
-            campaigns: "Flexi Combo (Buy 2 Get 9% OFF)",
-            exclusions: "None",
-            pitch: "The legendary circular design loved by travelers worldwide!"
+            notes: "Best-selling icon. Eligible for Seller VC and Cofund VC."
         }, {
             id: "ellen",
             name: "ELLEN",
             fullName: "Ellen Spinner TSA V2",
-            icon: "🧳",
             sellerVc: true,
             cofundVc: true,
             flexiCombo: true,
             bundle: false,
-            notes: "Eligible for all standard vouchers.",
-            vouchers: "Seller VC, Cofund VC",
-            campaigns: "Flexi Combo (Buy 2 Get 9% OFF)",
-            exclusions: "None",
-            pitch: "Super lightweight and stylish — a customer favourite!"
+            notes: "Eligible for all standard vouchers."
         }];
 
         // ─── SCRIPTS ───
-        const shopeeScripts = [{
+        const scripts = [{
             title: "🔥 BUNDLE DEAL",
             tag: "Hero Pitch",
             script: "Buy 2 or more MODUS & OCTOLITE items and get 10% OFF — buy 3 and save 20%!"
@@ -1179,30 +855,18 @@
             title: "💰 COFUND VC",
             tag: "Voucher",
             script: "Stack Cofund vouchers: 10% off RM300, 15% off RM599, 20% off RM999!"
+        }, {
+            title: "📦 FLEXI COMBO",
+            tag: "Mechanic",
+            script: "Buy 2 items and get 9% OFF automatically at checkout — exclude VB!"
         }];
 
-        const tiktokScripts = [{
-            title: "🔥 TIKTOK BUNDLE",
-            tag: "TikTok Hero",
-            script: "Checkout MODUS + OCTOLITE together to unlock 10% or 20% OFF instantly!"
-        }, {
-            title: "🎟️ NEW BUYER",
-            tag: "TikTok VC",
-            script: "New buyer? Tap the yellow bag to claim RM20 nms on TikTok Shop!"
-        }, {
-            title: "🚚 TIKTOK SHIPPING",
-            tag: "Shipping",
-            script: "Grab TikTok Shop shipping vouchers — check cap & threshold inside the yellow bag!"
-        }];
-
-        let currentPlatform = 'shopee';
-        let currentShopeeDate = '6-8-9';
-        let currentTikTokDate = '6-8-9';
+        let currentDate = '6-8-9';
 
         window.addEventListener('DOMContentLoaded', () => {
             updateTimestamp();
+            renderMatrix();
             renderScripts();
-            renderProductMatrices();
         });
 
         function updateTimestamp() {
@@ -1212,43 +876,12 @@
             document.getElementById('last-updated-time').innerText = `${dateStr}, ${timeStr}`;
         }
 
-        function switchPlatform(platform) {
-            currentPlatform = platform;
-            const shopeeBtn = document.getElementById('btn-platform-shopee');
-            const tiktokBtn = document.getElementById('btn-platform-tiktok');
-            const shopeeContainer = document.getElementById('shopee-plan-container');
-            const tiktokContainer = document.getElementById('tiktok-plan-container');
-            const indicator = document.getElementById('platform-indicator-badge');
-
-            if (platform === 'shopee') {
-                shopeeBtn.className =
-                    "flex-1 md:flex-none flex items-center justify-center space-x-2 px-4 sm:px-6 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all duration-200 bg-at-shopee text-white shadow-md";
-                tiktokBtn.className =
-                    "flex-1 md:flex-none flex items-center justify-center space-x-2 px-4 sm:px-6 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all duration-200 text-slate-600 hover:text-slate-900";
-                shopeeContainer.classList.remove('hidden');
-                tiktokContainer.classList.add('hidden');
-                indicator.innerText = "Viewing: SHOPEE PLAN";
-                indicator.className =
-                "px-2 sm:px-3 py-1 bg-at-shopee text-white text-[10px] sm:text-xs font-bold rounded-full shadow-sm";
-            } else {
-                tiktokBtn.className =
-                    "flex-1 md:flex-none flex items-center justify-center space-x-2 px-4 sm:px-6 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all duration-200 bg-black text-white shadow-md";
-                shopeeBtn.className =
-                    "flex-1 md:flex-none flex items-center justify-center space-x-2 px-4 sm:px-6 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all duration-200 text-slate-600 hover:text-slate-900";
-                shopeeContainer.classList.add('hidden');
-                tiktokContainer.classList.remove('hidden');
-                indicator.innerText = "Viewing: TIKTOK PLAN";
-                indicator.className =
-                    "px-2 sm:px-3 py-1 bg-black text-white text-[10px] sm:text-xs font-bold rounded-full shadow-sm";
-            }
-        }
-
-        function switchShopeeDate(dateKey) {
-            currentShopeeDate = dateKey;
-            const btn1 = document.getElementById('shopee-tab-d1');
-            const btn2 = document.getElementById('shopee-tab-d2');
-            const content1 = document.getElementById('shopee-date-content-6-8-9');
-            const content2 = document.getElementById('shopee-date-content-7-10-11');
+        function switchDate(dateKey) {
+            currentDate = dateKey;
+            const btn1 = document.getElementById('tab-d1');
+            const btn2 = document.getElementById('tab-d2');
+            const content1 = document.getElementById('date-content-6-8-9');
+            const content2 = document.getElementById('date-content-7-10-11');
 
             if (dateKey === '6-8-9') {
                 btn1.className =
@@ -1267,35 +900,34 @@
             }
         }
 
-        function switchTikTokDate(dateKey) {
-            currentTikTokDate = dateKey;
-            const btn1 = document.getElementById('tiktok-tab-d1');
-            const btn2 = document.getElementById('tiktok-tab-d2');
-            const content1 = document.getElementById('tiktok-date-content-6-8-9');
-            const content2 = document.getElementById('tiktok-date-content-7-10-11');
-
-            if (dateKey === '6-8-9') {
-                btn1.className =
-                    "px-3 sm:px-4 py-1.5 sm:py-2 text-[10px] sm:text-xs md:text-sm font-bold rounded-xl transition-all bg-black text-white shadow-sm whitespace-nowrap";
-                btn2.className =
-                    "px-3 sm:px-4 py-1.5 sm:py-2 text-[10px] sm:text-xs md:text-sm font-bold rounded-xl transition-all text-slate-600 hover:text-slate-900 whitespace-nowrap";
-                content1.classList.remove('hidden');
-                content2.classList.add('hidden');
-            } else {
-                btn2.className =
-                    "px-3 sm:px-4 py-1.5 sm:py-2 text-[10px] sm:text-xs md:text-sm font-bold rounded-xl transition-all bg-black text-white shadow-sm whitespace-nowrap";
-                btn1.className =
-                    "px-3 sm:px-4 py-1.5 sm:py-2 text-[10px] sm:text-xs md:text-sm font-bold rounded-xl transition-all text-slate-600 hover:text-slate-900 whitespace-nowrap";
-                content2.classList.remove('hidden');
-                content1.classList.add('hidden');
-            }
+        function renderMatrix() {
+            const tbody = document.getElementById('product-matrix-tbody');
+            tbody.innerHTML = products.map(p => `
+                <tr class="hover:bg-blue-50/50 transition-colors border-b border-slate-100">
+                    <td class="p-2 sm:p-3">
+                        <div class="font-extrabold text-slate-900">${p.name}</div>
+                        <div class="text-[10px] text-slate-500">${p.fullName}</div>
+                    </td>
+                    <td class="p-2 sm:p-3 text-center">
+                        ${p.sellerVc ? '<span class="text-emerald-600 text-base sm:text-lg">✓</span>' : '<span class="text-slate-300 text-base sm:text-lg">—</span>'}
+                    </td>
+                    <td class="p-2 sm:p-3 text-center">
+                        ${p.cofundVc ? '<span class="text-emerald-600 text-base sm:text-lg">✓</span>' : '<span class="text-slate-300 text-base sm:text-lg">—</span>'}
+                    </td>
+                    <td class="p-2 sm:p-3 text-center">
+                        ${p.flexiCombo ? '<span class="text-emerald-600 text-base sm:text-lg">✓</span>' : '<span class="text-slate-300 text-base sm:text-lg">—</span>'}
+                    </td>
+                    <td class="p-2 sm:p-3 text-center">
+                        ${p.bundle ? '<span class="bg-at-yellow text-at-navy font-extrabold text-[10px] px-2 py-0.5 rounded">BUNDLE</span>' : '<span class="text-slate-300 text-base sm:text-lg">—</span>'}
+                    </td>
+                    <td class="p-2 sm:p-3 text-[10px] sm:text-xs text-slate-600 max-w-xs">${p.notes}</td>
+                </tr>
+            `).join('');
         }
 
         function renderScripts() {
-            const shopeeGrid = document.getElementById('shopee-script-grid');
-            const tiktokGrid = document.getElementById('tiktok-script-grid');
-
-            shopeeGrid.innerHTML = shopeeScripts.map(item => `
+            const grid = document.getElementById('shopee-script-grid');
+            grid.innerHTML = scripts.map(item => `
                 <div class="bg-slate-800/90 border border-slate-700/80 rounded-2xl p-3 sm:p-4 flex flex-col justify-between hover:border-at-yellow/50 transition-all">
                     <div>
                         <div class="flex items-center justify-between text-[10px] sm:text-xs mb-2">
@@ -1306,24 +938,6 @@
                     </div>
                     <div class="mt-3 pt-2 border-t border-slate-700/60 text-right">
                         <button onclick="copyToClipboard('${item.script.replace(/'/g, "\\'")}', this)" class="bg-slate-700 hover:bg-at-blue text-white text-[10px] sm:text-[11px] font-bold px-2 sm:px-3 py-1.5 rounded-lg transition-all flex items-center space-x-1.5 ml-auto">
-                            <i class="fa-regular fa-copy"></i>
-                            <span>Copy Script</span>
-                        </button>
-                    </div>
-                </div>
-            `).join('');
-
-            tiktokGrid.innerHTML = tiktokScripts.map(item => `
-                <div class="bg-slate-800/90 border border-slate-700/80 rounded-2xl p-3 sm:p-4 flex flex-col justify-between hover:border-at-tiktokCyan/50 transition-all">
-                    <div>
-                        <div class="flex items-center justify-between text-[10px] sm:text-xs mb-2">
-                            <span class="font-bold text-at-tiktokCyan">${item.title}</span>
-                            <span class="bg-slate-700 text-slate-300 text-[10px] px-2 py-0.5 rounded">${item.tag}</span>
-                        </div>
-                        <p class="text-[10px] sm:text-xs text-slate-200 leading-relaxed italic">"${item.script}"</p>
-                    </div>
-                    <div class="mt-3 pt-2 border-t border-slate-700/60 text-right">
-                        <button onclick="copyToClipboard('${item.script.replace(/'/g, "\\'")}', this)" class="bg-slate-700 hover:bg-at-tiktokPink text-white text-[10px] sm:text-[11px] font-bold px-2 sm:px-3 py-1.5 rounded-lg transition-all flex items-center space-x-1.5 ml-auto">
                             <i class="fa-regular fa-copy"></i>
                             <span>Copy Script</span>
                         </button>
@@ -1348,81 +962,6 @@
                 btnElement.innerHTML = originalHTML;
                 btnElement.classList.remove('bg-emerald-600');
             }, 1800);
-        }
-
-        function renderProductMatrices() {
-            // Shopee matrix
-            const shopeeTbody = document.getElementById('product-matrix-tbody-shopee');
-            shopeeTbody.innerHTML = samsoniteProducts.map(p => `
-                <tr onclick="openProductModal('${p.id}')" class="hover:bg-blue-50/50 cursor-pointer transition-colors border-b border-slate-100">
-                    <td class="p-2 sm:p-3">
-                        <div class="font-extrabold text-slate-900">${p.name}</div>
-                        <div class="text-[10px] text-slate-500">${p.fullName}</div>
-                    </td>
-                    <td class="p-2 sm:p-3 text-center">
-                        ${p.sellerVc ? '<span class="text-emerald-600 text-base sm:text-lg">✓</span>' : '<span class="text-slate-300 text-base sm:text-lg">—</span>'}
-                    </td>
-                    <td class="p-2 sm:p-3 text-center">
-                        ${p.cofundVc ? '<span class="text-emerald-600 text-base sm:text-lg">✓</span>' : '<span class="text-slate-300 text-base sm:text-lg">—</span>'}
-                    </td>
-                    <td class="p-2 sm:p-3 text-center">
-                        ${p.flexiCombo ? '<span class="text-emerald-600 text-base sm:text-lg">✓</span>' : '<span class="text-slate-300 text-base sm:text-lg">—</span>'}
-                    </td>
-                    <td class="p-2 sm:p-3 text-center">
-                        ${p.bundle ? '<span class="bg-at-yellow text-at-navy font-extrabold text-[10px] px-2 py-0.5 rounded">BUNDLE</span>' : '<span class="text-slate-300 text-base sm:text-lg">—</span>'}
-                    </td>
-                    <td class="p-2 sm:p-3 text-[10px] sm:text-xs text-slate-600 max-w-xs">${p.notes}</td>
-                </tr>
-            `).join('');
-
-            // TikTok matrix (no Cofund)
-            const tiktokTbody = document.getElementById('product-matrix-tbody-tiktok');
-            tiktokTbody.innerHTML = samsoniteProducts.map(p => `
-                <tr onclick="openProductModal('${p.id}')" class="hover:bg-blue-50/50 cursor-pointer transition-colors border-b border-slate-100">
-                    <td class="p-2 sm:p-3">
-                        <div class="font-extrabold text-slate-900">${p.name}</div>
-                        <div class="text-[10px] text-slate-500">${p.fullName}</div>
-                    </td>
-                    <td class="p-2 sm:p-3 text-center">
-                        ${p.sellerVc ? '<span class="text-emerald-600 text-base sm:text-lg">✓</span>' : '<span class="text-slate-300 text-base sm:text-lg">—</span>'}
-                    </td>
-                    <td class="p-2 sm:p-3 text-center">
-                        ${p.flexiCombo ? '<span class="text-emerald-600 text-base sm:text-lg">✓</span>' : '<span class="text-slate-300 text-base sm:text-lg">—</span>'}
-                    </td>
-                    <td class="p-2 sm:p-3 text-center">
-                        ${p.bundle ? '<span class="bg-at-yellow text-at-navy font-extrabold text-[10px] px-2 py-0.5 rounded">BUNDLE</span>' : '<span class="text-slate-300 text-base sm:text-lg">—</span>'}
-                    </td>
-                    <td class="p-2 sm:p-3 text-[10px] sm:text-xs text-slate-600 max-w-xs">${p.notes}</td>
-                </tr>
-            `).join('');
-        }
-
-        function openProductModal(productId) {
-            const product = samsoniteProducts.find(p => p.id === productId);
-            if (!product) return;
-
-            document.getElementById('modal-title').innerText = product.fullName;
-            document.getElementById('modal-icon').innerText = product.icon || '🧳';
-            document.getElementById('modal-vouchers').innerText = product.vouchers;
-            document.getElementById('modal-campaigns').innerText = product.campaigns;
-            document.getElementById('modal-exclusions').innerText = product.exclusions;
-            document.getElementById('modal-pitch').innerText = `"${product.pitch}"`;
-
-            const tagsContainer = document.getElementById('modal-tags');
-            let tags = '';
-            if (product.sellerVc) tags +=
-                '<span class="bg-blue-100 text-blue-800 text-[10px] font-bold px-2 py-0.5 rounded">Seller VC</span> ';
-            if (product.cofundVc) tags +=
-                '<span class="bg-purple-100 text-purple-800 text-[10px] font-bold px-2 py-0.5 rounded">Cofund VC</span> ';
-            if (product.bundle) tags +=
-                '<span class="bg-amber-100 text-amber-800 text-[10px] font-bold px-2 py-0.5 rounded">Bundle</span> ';
-            tagsContainer.innerHTML = tags;
-
-            document.getElementById('product-modal').classList.remove('hidden');
-        }
-
-        function closeProductModal() {
-            document.getElementById('product-modal').classList.add('hidden');
         }
     </script>
 
