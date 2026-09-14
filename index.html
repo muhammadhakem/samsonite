@@ -78,28 +78,6 @@
             box-shadow: 0 12px 30px -8px rgba(0, 0, 0, 0.10);
         }
 
-        .voucher-pill {
-            display: inline-block;
-            padding: 0.25rem 0.75rem;
-            border-radius: 9999px;
-            font-size: 0.7rem;
-            font-weight: 700;
-            background: #f1f5f9;
-            color: #1e293b;
-        }
-        .voucher-pill.highlight {
-            background: #fef3c7;
-            color: #92400e;
-        }
-        .voucher-pill.exclude {
-            background: #fee2e2;
-            color: #991b1b;
-        }
-        .voucher-pill.approved {
-            background: #d1fae5;
-            color: #065f46;
-        }
-
         .table-wrapper {
             overflow-x: auto;
             -webkit-overflow-scrolling: touch;
@@ -127,12 +105,12 @@
                 </div>
                 <div>
                     <h1 class="text-sm sm:text-lg font-extrabold tracking-tight flex items-center gap-2">
-                         PROMOTION DEALS CENTRE
+                        PROMOTION DEALS CENTRE
                         <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-semibold bg-red-500/20 text-red-300 border border-red-500/30">
                             <span class="w-1.5 h-1.5 rounded-full bg-red-500 mr-1 live-dot"></span> LIVE
                         </span>
                     </h1>
-                    <p class="text-[10px] sm:text-xs text-slate-300 hidden sm:block">Team reference hub · All active Shopee promotions in one place</p>
+                    <p class="text-[10px] sm:text-xs text-slate-300 hidden sm:block">Team reference hub · All active promotions in one place</p>
                 </div>
             </div>
 
@@ -142,7 +120,7 @@
                     <span>Updated: <strong id="last-updated-time" class="text-white">Loading...</strong></span>
                 </div>
                 <div class="bg-at-orange/20 border border-at-orange/40 text-at-orange px-2 sm:px-3 py-1 rounded-lg font-bold text-[10px] sm:text-xs">
-                    Campaign: 9.9 Super Sale
+                    Campaign: Malaysia Day '26
                 </div>
                 <span class="bg-amber-400/20 text-amber-300 border border-amber-400/30 px-2 py-1 rounded-md text-[10px] font-black uppercase tracking-wider hidden lg:inline-block">
                     INTERNAL USE ONLY
@@ -180,7 +158,7 @@
                         <span class="text-at-yellow font-extrabold uppercase tracking-widest text-[10px] sm:text-xs mb-1 block">Samsonite · Live Ops Quick Ref</span>
                         <h2 class="text-xl sm:text-2xl md:text-3xl font-black tracking-tight">WHAT'S ON PROMO?</h2>
                         <p class="text-slate-300 text-xs sm:text-sm mt-1 max-w-2xl">
-                            Everything the LIVE team needs to know — mechanics, vouchers, product eligibility & shipping thresholds at a glance.
+                            Everything the LIVE team needs to know — mechanics, tiers &amp; eligibility at a glance.
                         </p>
                     </div>
                     <div class="flex items-center space-x-2">
@@ -192,29 +170,31 @@
 
                 <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-4">
 
+                    <!-- 1. MODUS + OCTOLITE bundle (first as per user info) -->
                     <a href="#bundle-section" class="group bg-white/10 hover:bg-white/20 border border-white/15 hover:border-at-yellow transition-all p-3 sm:p-4 rounded-2xl flex flex-col justify-between cursor-pointer">
                         <div>
-                            <div class="flex items-center justify-between text-at-yellow text-[10px] font-bold mb-1">
-                                <span>BUNDLE PROMO</span>
+                            <div class="flex items-center justify-between text-amber-300 text-[10px] font-bold mb-1">
+                                <span>MODUS + OCTOLITE</span>
                                 <i class="fa-solid fa-layer-group group-hover:translate-x-0.5 transition-transform"></i>
                             </div>
                             <div class="text-sm sm:text-base md:text-lg font-black text-white leading-tight">BUY 2 / 3</div>
-                            <div class="text-[10px] sm:text-xs text-at-yellow font-bold mt-1">10% / 20% OFF</div>
+                            <div class="text-[10px] sm:text-xs text-amber-200 font-bold mt-1">10% / 20% OFF</div>
                         </div>
                         <div class="mt-3 pt-2 border-t border-white/10 text-[10px] text-slate-300 flex items-center justify-between">
-                            <span>MODUS + OCTOLITE</span>
+                            <span>From 7 Aug</span>
                             <i class="fa-solid fa-chevron-right text-[10px]"></i>
                         </div>
                     </a>
 
-                    <a href="#vouchers-section" class="group bg-white/10 hover:bg-white/20 border border-white/15 hover:border-at-yellow transition-all p-3 sm:p-4 rounded-2xl flex flex-col justify-between cursor-pointer">
+                    <!-- 2. Malaysia Day RM690 OFF -->
+                    <a href="#malaysia-day-section" class="group bg-white/10 hover:bg-white/20 border border-white/15 hover:border-at-yellow transition-all p-3 sm:p-4 rounded-2xl flex flex-col justify-between cursor-pointer">
                         <div>
-                            <div class="flex items-center justify-between text-emerald-400 text-[10px] font-bold mb-1">
-                                <span>NEW FOLLOWER</span>
-                                <i class="fa-solid fa-user-plus group-hover:translate-x-0.5 transition-transform"></i>
+                            <div class="flex items-center justify-between text-at-yellow text-[10px] font-bold mb-1">
+                                <span>MALAYSIA DAY '26</span>
+                                <i class="fa-solid fa-flag group-hover:translate-x-0.5 transition-transform"></i>
                             </div>
-                            <div class="text-sm sm:text-base md:text-lg font-black text-white leading-tight">RM30 OFF</div>
-                            <div class="text-[10px] sm:text-xs text-emerald-300 font-medium mt-1">Min. spend RM300</div>
+                            <div class="text-sm sm:text-base md:text-lg font-black text-white leading-tight">RM690 OFF</div>
+                            <div class="text-[10px] sm:text-xs text-at-yellow font-bold mt-1">Min. spend RM2,399</div>
                         </div>
                         <div class="mt-3 pt-2 border-t border-white/10 text-[10px] text-slate-300 flex items-center justify-between">
                             <span>Storewide</span>
@@ -222,47 +202,50 @@
                         </div>
                     </a>
 
-                    <a href="#vouchers-section" class="group bg-white/10 hover:bg-white/20 border border-white/15 hover:border-at-yellow transition-all p-3 sm:p-4 rounded-2xl flex flex-col justify-between cursor-pointer">
+                    <!-- 3. Ladies & Samsonite RED -->
+                    <a href="#malaysia-day-section" class="group bg-white/10 hover:bg-white/20 border border-white/15 hover:border-at-yellow transition-all p-3 sm:p-4 rounded-2xl flex flex-col justify-between cursor-pointer">
                         <div>
-                            <div class="flex items-center justify-between text-amber-300 text-[10px] font-bold mb-1">
-                                <span>SELLER VC</span>
-                                <i class="fa-solid fa-ticket group-hover:translate-x-0.5 transition-transform"></i>
+                            <div class="flex items-center justify-between text-emerald-300 text-[10px] font-bold mb-1">
+                                <span>LADIES &amp; RED</span>
+                                <i class="fa-solid fa-venus group-hover:translate-x-0.5 transition-transform"></i>
                             </div>
-                            <div class="text-sm sm:text-base md:text-lg font-black text-white leading-tight">9% / 5% OFF</div>
-                            <div class="text-[10px] sm:text-xs text-amber-200 font-medium mt-1">No min spend</div>
+                            <div class="text-sm sm:text-base md:text-lg font-black text-white leading-tight">+15% / +20%</div>
+                            <div class="text-[10px] sm:text-xs text-emerald-200 font-medium mt-1">Buy 2 / Buy 3</div>
                         </div>
                         <div class="mt-3 pt-2 border-t border-white/10 text-[10px] text-slate-300 flex items-center justify-between">
-                            <span>Normal price only</span>
+                            <span>Additional OFF</span>
                             <i class="fa-solid fa-chevron-right text-[10px]"></i>
                         </div>
                     </a>
 
-                    <a href="#flexi-section" class="group bg-white/10 hover:bg-white/20 border border-white/15 hover:border-at-yellow transition-all p-3 sm:p-4 rounded-2xl flex flex-col justify-between cursor-pointer">
+                    <!-- 4. Karissa Evo 50% -->
+                    <a href="#malaysia-day-section" class="group bg-white/10 hover:bg-white/20 border border-white/15 hover:border-at-yellow transition-all p-3 sm:p-4 rounded-2xl flex flex-col justify-between cursor-pointer">
+                        <div>
+                            <div class="flex items-center justify-between text-pink-300 text-[10px] font-bold mb-1">
+                                <span>KARISSA EVO</span>
+                                <i class="fa-solid fa-star group-hover:translate-x-0.5 transition-transform"></i>
+                            </div>
+                            <div class="text-sm sm:text-base md:text-lg font-black text-white leading-tight">50% OFF</div>
+                            <div class="text-[10px] sm:text-xs text-pink-200 font-medium mt-1">Buy 2 or more</div>
+                        </div>
+                        <div class="mt-3 pt-2 border-t border-white/10 text-[10px] text-slate-300 flex items-center justify-between">
+                            <span>Best value</span>
+                            <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                        </div>
+                    </a>
+
+                    <!-- 5. Campaign Period -->
+                    <a href="#malaysia-day-section" class="group bg-white/10 hover:bg-white/20 border border-white/15 hover:border-at-yellow transition-all p-3 sm:p-4 rounded-2xl flex flex-col justify-between cursor-pointer col-span-2 sm:col-span-1">
                         <div>
                             <div class="flex items-center justify-between text-sky-300 text-[10px] font-bold mb-1">
-                                <span>FLEXI COMBO</span>
-                                <i class="fa-solid fa-boxes-packing group-hover:translate-x-0.5 transition-transform"></i>
+                                <span>CAMPAIGN PERIOD</span>
+                                <i class="fa-regular fa-calendar-days group-hover:translate-x-0.5 transition-transform"></i>
                             </div>
-                            <div class="text-sm sm:text-base md:text-lg font-black text-white leading-tight">BUY 2 GET 9%</div>
-                            <div class="text-[10px] sm:text-xs text-sky-200 font-medium mt-1">Exclude VB</div>
+                            <div class="text-sm sm:text-base md:text-lg font-black text-white leading-tight">12 – 20 SEPT</div>
+                            <div class="text-[10px] sm:text-xs text-sky-200 font-medium mt-1">Malaysia Day '26</div>
                         </div>
                         <div class="mt-3 pt-2 border-t border-white/10 text-[10px] text-slate-300 flex items-center justify-between">
-                            <span>Auto discount</span>
-                            <i class="fa-solid fa-chevron-right text-[10px]"></i>
-                        </div>
-                    </a>
-
-                    <a href="#shipping-section" class="group bg-white/10 hover:bg-white/20 border border-white/15 hover:border-at-yellow transition-all p-3 sm:p-4 rounded-2xl flex flex-col justify-between cursor-pointer">
-                        <div>
-                            <div class="flex items-center justify-between text-purple-300 text-[10px] font-bold mb-1">
-                                <span>FREE SHIPPING</span>
-                                <i class="fa-solid fa-truck-fast group-hover:translate-x-0.5 transition-transform"></i>
-                            </div>
-                            <div class="text-sm sm:text-base md:text-lg font-black text-white leading-tight">UP TO RM80</div>
-                            <div class="text-[10px] sm:text-xs text-purple-200 font-medium mt-1">Min RM1,000 spend</div>
-                        </div>
-                        <div class="mt-3 pt-2 border-t border-white/10 text-[10px] text-slate-300 flex items-center justify-between">
-                            <span>Nationwide</span>
+                            <span>9 days only</span>
                             <i class="fa-solid fa-chevron-right text-[10px]"></i>
                         </div>
                     </a>
@@ -274,7 +257,7 @@
         <!-- ─── SHOPEE PLAN ─── -->
         <div class="space-y-8">
 
-            <!-- Date Tabs -->
+            <!-- Section header -->
             <div class="flex flex-col md:flex-row md:items-center justify-between border-b-2 border-at-shopee pb-3 gap-3">
                 <div class="flex items-center space-x-3">
                     <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-2xl bg-at-shopee text-white flex items-center justify-center font-black text-base sm:text-xl shadow-md">
@@ -282,27 +265,21 @@
                     </div>
                     <div>
                         <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight">SHOPEE PROMO PLAN</h2>
-                        <p class="text-[10px] sm:text-xs text-slate-500">Samsonite official campaign mechanics &amp; seller vouchers</p>
+                        <p class="text-[10px] sm:text-xs text-slate-500">Samsonite official campaign mechanics</p>
                     </div>
                 </div>
-
-                <div class="flex items-center bg-slate-200 p-1 rounded-2xl self-start md:self-auto overflow-x-auto w-full md:w-auto">
-                    <button id="tab-d1" onclick="switchDate('6-8-9')" class="px-3 sm:px-4 py-1.5 sm:py-2 text-[10px] sm:text-xs md:text-sm font-bold rounded-xl transition-all bg-white text-at-shopee shadow-sm whitespace-nowrap">
-                        <i class="fa-regular fa-calendar-days mr-1"></i> 6, 8–9 SEPT
-                    </button>
-                    <button id="tab-d2" onclick="switchDate('7-10-11')" class="px-3 sm:px-4 py-1.5 sm:py-2 text-[10px] sm:text-xs md:text-sm font-bold rounded-xl transition-all text-slate-600 hover:text-slate-900 whitespace-nowrap">
-                        <i class="fa-regular fa-calendar-check mr-1"></i> 7, 10–11 SEPT
-                    </button>
-                </div>
+                <span class="self-start md:self-auto px-3 py-1 rounded-full bg-slate-200 text-slate-700 text-[10px] sm:text-xs font-bold">
+                    <i class="fa-solid fa-circle-info mr-1"></i> 2 ACTIVE MECHANICS
+                </span>
             </div>
 
-            <!-- ─── BUNDLE: MODUS & OCTOLITE ─── -->
+            <!-- ─── MODUS & OCTOLITE BUNDLE (FIRST) ─── -->
             <section id="bundle-section" class="promo-card bg-gradient-to-r from-orange-50 via-white to-amber-50 rounded-2xl sm:rounded-3xl border-2 border-at-shopee/30 p-4 sm:p-6 shadow-md relative overflow-hidden">
                 <div class="absolute top-0 right-0 bg-at-shopee text-white text-[10px] font-black uppercase tracking-wider px-3 sm:px-4 py-1 rounded-bl-2xl shadow-sm">
                     🔥 BUNDLE PROMO · STARTS 7 AUG
                 </div>
 
-                <div class="flex flex-col lg:flex-row items-center justify-between gap-4 sm:gap-6">
+                <div class="flex flex-col lg:flex-row items-center justify-between gap-4 sm:gap-6 pt-6 sm:pt-2">
                     <div class="flex-1 space-y-3">
                         <div class="inline-flex items-center space-x-2 bg-at-shopee/10 text-at-shopee px-2 sm:px-3 py-1 rounded-full text-[10px] sm:text-xs font-extrabold">
                             <i class="fa-solid fa-bolt"></i>
@@ -358,323 +335,101 @@
                 </div>
             </section>
 
-            <!-- ─── DATE-SPECIFIC CONTENT ─── -->
-
-            <!-- 6, 8–9 SEPT -->
-            <div id="date-content-6-8-9" class="date-view space-y-6 sm:space-y-8">
-
-                <div class="flex items-center space-x-2 text-slate-800 font-extrabold text-base sm:text-lg">
-                    <span class="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-at-shopee"></span>
-                    <h3>PROMOTIONS ACTIVE: <span class="text-at-shopee">6, 8–9 SEPT</span></h3>
+            <!-- ─── MALAYSIA DAY '26 (SECOND) ─── -->
+            <section id="malaysia-day-section" class="promo-card bg-gradient-to-r from-red-50 via-white to-amber-50 rounded-2xl sm:rounded-3xl border-2 border-at-shopee/30 p-4 sm:p-6 shadow-md relative overflow-hidden">
+                <div class="absolute top-0 right-0 bg-at-shopee text-white text-[10px] font-black uppercase tracking-wider px-3 sm:px-4 py-1 rounded-bl-2xl shadow-sm">
+                    🇲🇾 MALAYSIA DAY '26 · 12 – 20 SEPT
                 </div>
 
-                <!-- New Follower + New Buyer -->
-                <div id="vouchers-section" class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div class="promo-card bg-white p-4 sm:p-5 rounded-2xl border border-slate-200 shadow-sm flex items-start space-x-4">
-                        <div class="w-10 h-10 sm:w-14 sm:h-14 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-xl sm:text-2xl font-black shrink-0">🎟️</div>
-                        <div>
-                            <div class="flex items-center gap-2 flex-wrap">
-                                <span class="text-[10px] font-extrabold text-emerald-600 uppercase">NEW FOLLOWER — BAU</span>
-                                <span class="voucher-pill">Storewide</span>
-                            </div>
-                            <div class="text-2xl sm:text-3xl font-black text-slate-900 mt-1">RM30 OFF</div>
-                            <p class="text-[10px] sm:text-xs text-slate-500">Min. Spend: <strong>RM300</strong> · Storewide</p>
+                <div class="flex-1 space-y-4 pt-6 sm:pt-2">
+                    <div class="inline-flex items-center space-x-2 bg-at-shopee/10 text-at-shopee px-2 sm:px-3 py-1 rounded-full text-[10px] sm:text-xs font-extrabold">
+                        <i class="fa-solid fa-bolt"></i>
+                        <span>CAMPAIGN: MALAYSIA DAY '26</span>
+                    </div>
+                    <h3 class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">RM690 OFF <span class="text-at-shopee">STOREWIDE</span></h3>
+                    <p class="text-[10px] sm:text-xs text-slate-600 font-medium">
+                        <i class="fa-solid fa-calendar-day text-at-shopee mr-1"></i> Period: <strong>12th – 20th September</strong> · Min. spend <strong>RM2,399</strong>
+                    </p>
+
+                    <div class="mt-4 p-3 sm:p-4 bg-white rounded-2xl border border-orange-100 shadow-sm flex flex-wrap items-center justify-center sm:justify-around gap-3 text-center">
+                        <div class="bg-at-shopee/10 border border-at-shopee/30 px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl">
+                            <span class="text-[10px] font-bold text-slate-500 uppercase block">Condition</span>
+                            <span class="text-xs sm:text-base font-black text-at-shopee">MIN. SPEND RM2,399</span>
+                        </div>
+                        <div class="text-2xl font-black text-slate-300">→</div>
+                        <div class="bg-at-shopee text-white px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl shadow-md">
+                            <span class="text-[8px] sm:text-[10px] font-bold uppercase tracking-wider block opacity-90">Discount</span>
+                            <span class="text-sm sm:text-base md:text-lg font-black">RM690 OFF</span>
+                        </div>
+                        <div class="text-2xl font-black text-slate-300">→</div>
+                        <div class="bg-emerald-50 border border-emerald-200 px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl">
+                            <span class="text-[10px] font-bold text-slate-500 uppercase block">Scope</span>
+                            <span class="text-xs sm:text-base font-black text-emerald-600">STOREWIDE</span>
                         </div>
                     </div>
 
-                    <div class="promo-card bg-white p-4 sm:p-5 rounded-2xl border border-slate-200 shadow-sm flex items-start space-x-4">
-                        <div class="w-10 h-10 sm:w-14 sm:h-14 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-xl sm:text-2xl font-black shrink-0">👤</div>
-                        <div>
-                            <div class="flex items-center gap-2 flex-wrap">
-                                <span class="text-[10px] font-extrabold text-emerald-600 uppercase">NEW BUYER</span>
-                                <span class="voucher-pill exclude">Exclude VB</span>
+                    <!-- Sub-mechanics -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+
+                        <!-- Ladies + Samsonite RED -->
+                        <div class="promo-card bg-white p-4 sm:p-5 rounded-2xl border-2 border-emerald-300 shadow-sm flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center justify-between text-[10px] font-bold text-emerald-700 mb-2">
+                                    <span>LADIES &amp; SAMSONITE RED</span>
+                                    <span class="bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded-full text-[10px] font-bold">Additional OFF</span>
+                                </div>
+                                <div class="text-2xl sm:text-3xl font-black text-slate-900">+15% / +20% OFF</div>
+                                <div class="mt-3 text-xs space-y-1.5">
+                                    <div class="flex justify-between bg-emerald-50 p-2 rounded-lg border border-emerald-100">
+                                        <span class="font-bold text-slate-700">Buy 2</span>
+                                        <strong class="text-emerald-700">Additional 15% OFF</strong>
+                                    </div>
+                                    <div class="flex justify-between bg-emerald-50 p-2 rounded-lg border border-emerald-100">
+                                        <span class="font-bold text-slate-700">Buy 3</span>
+                                        <strong class="text-emerald-700">Additional 20% OFF</strong>
+                                    </div>
+                                    <p class="text-[10px] text-red-600 font-bold pt-1">
+                                        <i class="fa-solid fa-triangle-exclamation"></i> Ladies lineup excludes Karissa Evo
+                                    </p>
+                                </div>
                             </div>
-                            <div class="text-2xl sm:text-3xl font-black text-slate-900 mt-1">RM20 off</div>
-                            <p class="text-[10px] sm:text-xs text-slate-500">No min spend · <strong>Excludes VB</strong></p>
                         </div>
+
+                        <!-- Karissa Evo -->
+                        <div class="promo-card bg-white p-4 sm:p-5 rounded-2xl border-2 border-pink-300 shadow-sm flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center justify-between text-[10px] font-bold text-pink-700 mb-2">
+                                    <span>KARISSA EVO</span>
+                                    <span class="bg-pink-100 text-pink-700 px-2 py-0.5 rounded-full text-[10px] font-bold">Best Value</span>
+                                </div>
+                                <div class="text-2xl sm:text-3xl font-black text-pink-600">50% OFF</div>
+                                <div class="mt-3 text-xs space-y-1.5">
+                                    <div class="flex justify-between bg-pink-50 p-2 rounded-lg border border-pink-100">
+                                        <span class="font-bold text-slate-700">Buy 2 or more</span>
+                                        <strong class="text-pink-700">50% OFF</strong>
+                                    </div>
+                                    <p class="text-[10px] text-slate-500 pt-1">
+                                        <i class="fa-solid fa-circle-info text-pink-500"></i> Not eligible for the Ladies +15% / +20% tier
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
+            </section>
 
-                <!-- Vouchers: Seller VC + Cofund + Platform -->
-                <div class="space-y-3">
-                    <h4 class="text-xs sm:text-sm font-extrabold text-slate-700 uppercase tracking-wider flex items-center gap-2">
-                        <i class="fa-solid fa-tags text-at-shopee"></i> VOUCHER CODES (6, 8–9 SEPT)
-                    </h4>
-
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                        <!-- Seller VC 9% -->
-                        <div class="promo-card bg-white p-4 sm:p-5 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
-                            <div>
-                                <div class="flex items-center justify-between text-[10px] font-bold text-slate-500 mb-2">
-                                    <span>SELLER VC</span>
-                                    <span class="voucher-pill">No Min Spend</span>
-                                </div>
-                                <div class="text-2xl sm:text-3xl font-black text-slate-900">9% OFF</div>
-                                <div class="mt-3 p-2.5 bg-red-50 rounded-xl border border-red-100 text-xs">
-                                    <span class="font-bold text-red-600 block mb-0.5"><i class="fa-solid fa-triangle-exclamation"></i> Terms:</span>
-                                    <span class="text-slate-700">Normal price only</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Cofund 10% -->
-                        <div class="promo-card bg-white p-4 sm:p-5 rounded-2xl border-2 border-amber-300 shadow-sm flex flex-col justify-between">
-                            <div>
-                                <div class="flex items-center justify-between text-[10px] font-bold text-amber-700 mb-2">
-                                    <span>COFUND VC</span>
-                                    <span class="voucher-pill">Shopee co-fund</span>
-                                </div>
-                                <div class="text-2xl sm:text-3xl font-black text-amber-600">10% OFF</div>
-                                <div class="mt-2 text-xs space-y-1">
-                                    <span class="font-bold text-slate-800 block">Min RM300 · Cap RM30</span>
-                                    <span class="text-[10px] text-red-600 font-bold block">Excludes VB</span>
-                                </div>
-                                <div class="mt-2 text-[10px] text-slate-400">Till 15 Sept</div>
-                            </div>
-                        </div>
-
-                        <!-- Cofund 15% -->
-                        <div class="promo-card bg-white p-4 sm:p-5 rounded-2xl border-2 border-amber-300 shadow-sm flex flex-col justify-between">
-                            <div>
-                                <div class="flex items-center justify-between text-[10px] font-bold text-amber-700 mb-2">
-                                    <span>COFUND VC</span>
-                                    <span class="voucher-pill">Shopee co-fund</span>
-                                </div>
-                                <div class="text-2xl sm:text-3xl font-black text-amber-600">15% OFF</div>
-                                <div class="mt-2 text-xs space-y-1">
-                                    <span class="font-bold text-slate-800 block">Min RM599 · Cap RM90</span>
-                                    <span class="text-[10px] text-red-600 font-bold block">Excludes VB</span>
-                                </div>
-                                <div class="mt-2 text-[10px] text-slate-400">Till 15 Sept</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Cofund 20% + Platform VC -->
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-                        <div class="promo-card bg-white p-4 sm:p-5 rounded-2xl border-2 border-at-shopee/40 shadow-sm flex flex-col justify-between">
-                            <div>
-                                <div class="flex items-center justify-between text-[10px] font-bold text-at-shopee mb-2">
-                                    <span>COFUND VC</span>
-                                    <span class="voucher-pill highlight">High Value</span>
-                                </div>
-                                <div class="text-2xl sm:text-3xl font-black text-at-shopee">20% OFF</div>
-                                <div class="mt-2 text-xs space-y-1">
-                                    <span class="font-bold text-slate-800 block">Min RM999 · Cap RM200</span>
-                                    <span class="text-[10px] text-red-600 font-bold block">Excludes VB</span>
-                                </div>
-                                <div class="mt-2 text-[10px] text-slate-400">Till 15 Sept</div>
-                            </div>
-                        </div>
-
-                        <div class="promo-card bg-emerald-50/60 p-4 sm:p-5 rounded-2xl border-2 border-emerald-300 shadow-sm flex flex-col justify-between">
-                            <div>
-                                <div class="flex items-center justify-between">
-                                    <span class="text-[10px] font-bold text-emerald-700 uppercase">PLATFORM VC</span>
-                                    <span class="voucher-pill approved">APPROVED</span>
-                                </div>
-                                <div class="text-2xl sm:text-3xl font-black text-slate-900 mt-2">RM15 off</div>
-                                <div class="text-[10px] sm:text-xs text-slate-600 font-bold mt-1">Storewide</div>
-                            </div>
-                            <div class="mt-3 p-2 bg-white rounded-lg text-[11px] text-slate-600 border border-emerald-200">
-                                <i class="fa-solid fa-circle-check text-emerald-500 mr-1"></i> Storewide eligibility
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Flexi Combo + Free Shipping -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div id="flexi-section" class="promo-card bg-white p-4 sm:p-5 rounded-2xl border border-slate-200 shadow-sm flex items-center space-x-4">
-                        <div class="w-10 h-10 sm:w-14 sm:h-14 rounded-2xl bg-sky-100 text-sky-600 flex items-center justify-center text-xl sm:text-2xl font-black shrink-0">📦</div>
-                        <div>
-                            <span class="text-[10px] font-extrabold text-sky-600 uppercase">FLEXI COMBO</span>
-                            <div class="text-lg sm:text-2xl font-black text-slate-900">BUY 2 GET 9% OFF</div>
-                            <p class="text-[10px] sm:text-xs text-slate-500 mt-0.5">Excludes VB</p>
-                        </div>
-                    </div>
-
-                    <div id="shipping-section" class="promo-card bg-white p-4 sm:p-5 rounded-2xl border border-slate-200 shadow-sm flex items-start space-x-4">
-                        <div class="w-10 h-10 sm:w-14 sm:h-14 rounded-2xl bg-purple-100 text-purple-600 flex items-center justify-center text-xl sm:text-2xl font-black shrink-0">🚚</div>
-                        <div class="flex-1">
-                            <span class="text-[10px] font-extrabold text-purple-600 uppercase">SHOPEE NATIONWIDE</span>
-                            <div class="text-base sm:text-lg font-black text-slate-900 mt-0.5">Free Shipping</div>
-                            <div class="mt-2 text-[10px] sm:text-xs space-y-1">
-                                <div class="flex justify-between bg-purple-50 p-1.5 rounded-lg border border-purple-100">
-                                    <span>Min RM1,000 spend:</span>
-                                    <strong class="text-purple-700">Capped at RM80</strong>
-                                </div>
-                                <div class="text-[10px] text-slate-400 mt-1">Nationwide</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-            <!-- 7, 10–11 SEPT -->
-            <div id="date-content-7-10-11" class="date-view space-y-6 sm:space-y-8 hidden">
-
-                <div class="flex items-center space-x-2 text-slate-800 font-extrabold text-base sm:text-lg">
-                    <span class="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-at-shopee"></span>
-                    <h3>PROMOTIONS ACTIVE: <span class="text-at-shopee">7, 10–11 SEPT</span></h3>
-                </div>
-
-                <!-- New Follower + New Buyer -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div class="promo-card bg-white p-4 sm:p-5 rounded-2xl border border-slate-200 shadow-sm flex items-start space-x-4">
-                        <div class="w-10 h-10 sm:w-14 sm:h-14 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-xl sm:text-2xl font-black shrink-0">🎟️</div>
-                        <div>
-                            <div class="flex items-center gap-2 flex-wrap">
-                                <span class="text-[10px] font-extrabold text-emerald-600 uppercase">NEW FOLLOWER — BAU</span>
-                                <span class="voucher-pill">Storewide</span>
-                            </div>
-                            <div class="text-2xl sm:text-3xl font-black text-slate-900 mt-1">RM30 OFF</div>
-                            <p class="text-[10px] sm:text-xs text-slate-500">Min. Spend: <strong>RM300</strong> · Storewide</p>
-                        </div>
-                    </div>
-
-                    <div class="promo-card bg-white p-4 sm:p-5 rounded-2xl border border-slate-200 shadow-sm flex items-start space-x-4">
-                        <div class="w-10 h-10 sm:w-14 sm:h-14 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-xl sm:text-2xl font-black shrink-0">👤</div>
-                        <div>
-                            <div class="flex items-center gap-2 flex-wrap">
-                                <span class="text-[10px] font-extrabold text-emerald-600 uppercase">NEW BUYER</span>
-                                <span class="voucher-pill exclude">Exclude VB</span>
-                            </div>
-                            <div class="text-2xl sm:text-3xl font-black text-slate-900 mt-1">RM20 nms</div>
-                            <p class="text-[10px] sm:text-xs text-slate-500">No min spend · <strong>Excludes VB</strong></p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Vouchers: Seller VC 5% + Cofund + Platform -->
-                <div class="space-y-3">
-                    <h4 class="text-xs sm:text-sm font-extrabold text-slate-700 uppercase tracking-wider flex items-center gap-2">
-                        <i class="fa-solid fa-tags text-at-shopee"></i> VOUCHER CODES (7, 10–11 SEPT)
-                    </h4>
-
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                        <!-- Seller VC 5% -->
-                        <div class="promo-card bg-white p-4 sm:p-5 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
-                            <div>
-                                <div class="flex items-center justify-between text-[10px] font-bold text-slate-500 mb-2">
-                                    <span>SELLER VC</span>
-                                    <span class="voucher-pill">No Min Spend</span>
-                                </div>
-                                <div class="text-2xl sm:text-3xl font-black text-slate-900">5% OFF</div>
-                                <div class="mt-3 p-2.5 bg-red-50 rounded-xl border border-red-100 text-xs">
-                                    <span class="font-bold text-red-600 block mb-0.5"><i class="fa-solid fa-triangle-exclamation"></i> Terms:</span>
-                                    <span class="text-slate-700">Normal price only</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Cofund 10% -->
-                        <div class="promo-card bg-white p-4 sm:p-5 rounded-2xl border-2 border-amber-300 shadow-sm flex flex-col justify-between">
-                            <div>
-                                <div class="flex items-center justify-between text-[10px] font-bold text-amber-700 mb-2">
-                                    <span>COFUND VC</span>
-                                    <span class="voucher-pill">Shopee co-fund</span>
-                                </div>
-                                <div class="text-2xl sm:text-3xl font-black text-amber-600">10% OFF</div>
-                                <div class="mt-2 text-xs space-y-1">
-                                    <span class="font-bold text-slate-800 block">Min RM300 · Cap RM30</span>
-                                    <span class="text-[10px] text-red-600 font-bold block">Excludes VB</span>
-                                </div>
-                                <div class="mt-2 text-[10px] text-slate-400">Till 15 Sept</div>
-                            </div>
-                        </div>
-
-                        <!-- Cofund 15% -->
-                        <div class="promo-card bg-white p-4 sm:p-5 rounded-2xl border-2 border-amber-300 shadow-sm flex flex-col justify-between">
-                            <div>
-                                <div class="flex items-center justify-between text-[10px] font-bold text-amber-700 mb-2">
-                                    <span>COFUND VC</span>
-                                    <span class="voucher-pill">Shopee co-fund</span>
-                                </div>
-                                <div class="text-2xl sm:text-3xl font-black text-amber-600">15% OFF</div>
-                                <div class="mt-2 text-xs space-y-1">
-                                    <span class="font-bold text-slate-800 block">Min RM599 · Cap RM90</span>
-                                    <span class="text-[10px] text-red-600 font-bold block">Excludes VB</span>
-                                </div>
-                                <div class="mt-2 text-[10px] text-slate-400">Till 15 Sept</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Cofund 20% + Platform VC -->
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-                        <div class="promo-card bg-white p-4 sm:p-5 rounded-2xl border-2 border-at-shopee/40 shadow-sm flex flex-col justify-between">
-                            <div>
-                                <div class="flex items-center justify-between text-[10px] font-bold text-at-shopee mb-2">
-                                    <span>COFUND VC</span>
-                                    <span class="voucher-pill highlight">High Value</span>
-                                </div>
-                                <div class="text-2xl sm:text-3xl font-black text-at-shopee">20% OFF</div>
-                                <div class="mt-2 text-xs space-y-1">
-                                    <span class="font-bold text-slate-800 block">Min RM999 · Cap RM200</span>
-                                    <span class="text-[10px] text-red-600 font-bold block">Excludes VB</span>
-                                </div>
-                                <div class="mt-2 text-[10px] text-slate-400">Till 15 Sept</div>
-                            </div>
-                        </div>
-
-                        <div class="promo-card bg-emerald-50/60 p-4 sm:p-5 rounded-2xl border-2 border-emerald-300 shadow-sm flex flex-col justify-between">
-                            <div>
-                                <div class="flex items-center justify-between">
-                                    <span class="text-[10px] font-bold text-emerald-700 uppercase">PLATFORM VC</span>
-                                    <span class="voucher-pill approved">APPROVED</span>
-                                </div>
-                                <div class="text-2xl sm:text-3xl font-black text-slate-900 mt-2">RM15 nms</div>
-                                <div class="text-[10px] sm:text-xs text-slate-600 font-bold mt-1">Storewide</div>
-                            </div>
-                            <div class="mt-3 p-2 bg-white rounded-lg text-[11px] text-slate-600 border border-emerald-200">
-                                <i class="fa-solid fa-circle-check text-emerald-500 mr-1"></i> Storewide eligibility
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Flexi Combo + Free Shipping -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div class="promo-card bg-white p-4 sm:p-5 rounded-2xl border border-slate-200 shadow-sm flex items-center space-x-4">
-                        <div class="w-10 h-10 sm:w-14 sm:h-14 rounded-2xl bg-sky-100 text-sky-600 flex items-center justify-center text-xl sm:text-2xl font-black shrink-0">📦</div>
-                        <div>
-                            <span class="text-[10px] font-extrabold text-sky-600 uppercase">FLEXI COMBO</span>
-                            <div class="text-lg sm:text-2xl font-black text-slate-900">BUY 2 GET 9% OFF</div>
-                            <p class="text-[10px] sm:text-xs text-slate-500 mt-0.5">Excludes VB</p>
-                        </div>
-                    </div>
-
-                    <div class="promo-card bg-white p-4 sm:p-5 rounded-2xl border border-slate-200 shadow-sm flex items-start space-x-4">
-                        <div class="w-10 h-10 sm:w-14 sm:h-14 rounded-2xl bg-purple-100 text-purple-600 flex items-center justify-center text-xl sm:text-2xl font-black shrink-0">🚚</div>
-                        <div class="flex-1">
-                            <span class="text-[10px] font-extrabold text-purple-600 uppercase">SHOPEE NATIONWIDE</span>
-                            <div class="text-base sm:text-lg font-black text-slate-900 mt-0.5">Free Shipping</div>
-                            <div class="mt-2 text-[10px] sm:text-xs space-y-1">
-                                <div class="flex justify-between bg-purple-50 p-1.5 rounded-lg border border-purple-100">
-                                    <span>Min RM1,000 spend:</span>
-                                    <strong class="text-purple-700">Capped at RM80</strong>
-                                </div>
-                                <div class="text-[10px] text-slate-400 mt-1">Nationwide</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-            <!-- ─── PRODUCT ELIGIBILITY MATRIX ─── -->
+            <!-- ─── MECHANICS MATRIX ─── -->
             <section class="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-card border border-slate-200 space-y-4 sm:space-y-6">
                 <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 pb-4">
                     <div>
-                        <span class="text-[10px] sm:text-xs text-at-blue font-extrabold uppercase tracking-widest">PRODUCT COMPATIBILITY</span>
+                        <span class="text-[10px] sm:text-xs text-at-blue font-extrabold uppercase tracking-widest">MECHANICS OVERVIEW</span>
                         <h3 class="text-lg sm:text-2xl font-black text-slate-900">ELIGIBILITY MATRIX — SHOPEE</h3>
-                        <p class="text-[10px] sm:text-xs text-slate-500">Quick lookup for which vouchers apply to each model</p>
+                        <p class="text-[10px] sm:text-xs text-slate-500">Quick lookup for which mechanic applies to each lineup</p>
                     </div>
                     <div class="text-[10px] sm:text-xs text-slate-500 flex items-center space-x-2">
                         <span class="inline-block w-2.5 h-2.5 rounded-full bg-emerald-500"></span> <span>✓ Eligible</span>
-                        <span class="inline-block w-2.5 h-2.5 rounded-full bg-slate-300 ml-2"></span> <span>— Excluded</span>
+                        <span class="inline-block w-2.5 h-2.5 rounded-full bg-slate-300 ml-2"></span> <span>— Not applicable</span>
                     </div>
                 </div>
 
@@ -682,11 +437,10 @@
                     <table class="w-full text-left text-xs sm:text-sm border-collapse">
                         <thead>
                             <tr class="bg-slate-100 text-slate-700 text-[10px] sm:text-xs uppercase tracking-wider border-b border-slate-200">
-                                <th class="p-2 sm:p-3 rounded-tl-xl">Product</th>
-                                <th class="p-2 sm:p-3 text-center">Seller VC</th>
-                                <th class="p-2 sm:p-3 text-center">Cofund VC</th>
-                                <th class="p-2 sm:p-3 text-center">Flexi Combo</th>
-                                <th class="p-2 sm:p-3 text-center">Bundle</th>
+                                <th class="p-2 sm:p-3 rounded-tl-xl">Lineup / Category</th>
+                                <th class="p-2 sm:p-3 text-center">RM690 OFF<br><span class="normal-case font-medium text-slate-500">Min. RM2,399</span></th>
+                                <th class="p-2 sm:p-3 text-center">Buy 2</th>
+                                <th class="p-2 sm:p-3 text-center">Buy 3</th>
                                 <th class="p-2 sm:p-3 rounded-tr-xl">Notes</th>
                             </tr>
                         </thead>
@@ -698,44 +452,48 @@
 
         </div>
 
-        <!-- ─── EXCLUSIONS WARNING ─── -->
+        <!-- ─── CRITICAL NOTES ─── -->
         <section class="bg-red-50/80 border-2 border-red-300 rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-md space-y-4">
             <div class="flex items-center space-x-3 text-red-700">
                 <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-2xl bg-red-600 text-white flex items-center justify-center font-black text-base sm:text-xl shrink-0">⚠️</div>
                 <div>
-                    <h3 class="text-base sm:text-xl font-black text-red-900 tracking-tight">CRITICAL EXCLUSIONS</h3>
-                    <p class="text-[10px] sm:text-xs text-red-700">Must-know exclusions for hosts — do NOT guarantee these on air.</p>
+                    <h3 class="text-base sm:text-xl font-black text-red-900 tracking-tight">CRITICAL NOTES</h3>
+                    <p class="text-[10px] sm:text-xs text-red-700">Must-know conditions for hosts — do NOT guarantee anything outside this list.</p>
                 </div>
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-[10px] sm:text-xs">
 
-                <div class="bg-white p-3 sm:p-4 rounded-2xl border border-red-200 shadow-sm">
-                    <span class="bg-red-100 text-red-800 font-extrabold px-2 py-0.5 rounded text-[10px] uppercase">EXCLUDED</span>
-                    <h4 class="font-black text-slate-900 text-sm sm:text-base mt-1">VB Lineup</h4>
-                    <ul class="mt-2 text-slate-600 space-y-1 list-disc list-inside">
-                        <li>Excluded from <strong>New Buyer RM20 nms</strong></li>
-                        <li>Excluded from <strong>Cofund VC</strong> (all tiers)</li>
-                        <li>Excluded from <strong>Flexi Combo</strong></li>
-                    </ul>
-                </div>
-
-                <div class="bg-white p-3 sm:p-4 rounded-2xl border border-red-200 shadow-sm">
-                    <span class="bg-red-100 text-red-800 font-extrabold px-2 py-0.5 rounded text-[10px] uppercase">EXCLUDED</span>
-                    <h4 class="font-black text-slate-900 text-sm sm:text-base mt-1">Accessories</h4>
-                    <ul class="mt-2 text-slate-600 space-y-1 list-disc list-inside">
-                        <li>Excluded from <strong>Seller VC</strong> (both 9% &amp; 5%)</li>
-                        <li>Excluded from <strong>Cofund VC</strong></li>
-                        <li>Excluded from <strong>Platform VC (RM15)</strong></li>
-                    </ul>
-                </div>
-
+                <!-- 1. Bundle promo (first) -->
                 <div class="bg-white p-3 sm:p-4 rounded-2xl border border-red-200 shadow-sm">
                     <span class="bg-red-100 text-red-800 font-extrabold px-2 py-0.5 rounded text-[10px] uppercase">NOTE</span>
-                    <h4 class="font-black text-slate-900 text-sm sm:text-base mt-1">Normal Price Only</h4>
+                    <h4 class="font-black text-slate-900 text-sm sm:text-base mt-1">Bundle Promo</h4>
                     <ul class="mt-2 text-slate-600 space-y-1 list-disc list-inside">
-                        <li><strong>Seller VC</strong> applies to normal price items only</li>
-                        <li>Not valid on discounted/clearance items</li>
+                        <li><strong>MODUS &amp; OCTOLITE</strong> only</li>
+                        <li>Buy 2 → <strong>10% OFF</strong> · Buy 3 → <strong>20% OFF</strong></li>
+                        <li>Starts <strong>7 August</strong> until further notice</li>
+                    </ul>
+                </div>
+
+                <!-- 2. RM690 OFF condition -->
+                <div class="bg-white p-3 sm:p-4 rounded-2xl border border-red-200 shadow-sm">
+                    <span class="bg-red-100 text-red-800 font-extrabold px-2 py-0.5 rounded text-[10px] uppercase">CONDITION</span>
+                    <h4 class="font-black text-slate-900 text-sm sm:text-base mt-1">RM690 OFF</h4>
+                    <ul class="mt-2 text-slate-600 space-y-1 list-disc list-inside">
+                        <li>Requires <strong>min. spend RM2,399</strong></li>
+                        <li>Valid <strong>12th – 20th September</strong> only</li>
+                        <li>Storewide</li>
+                    </ul>
+                </div>
+
+                <!-- 3. Karissa Evo exclusion -->
+                <div class="bg-white p-3 sm:p-4 rounded-2xl border border-red-200 shadow-sm">
+                    <span class="bg-red-100 text-red-800 font-extrabold px-2 py-0.5 rounded text-[10px] uppercase">EXCLUDED</span>
+                    <h4 class="font-black text-slate-900 text-sm sm:text-base mt-1">Karissa Evo</h4>
+                    <ul class="mt-2 text-slate-600 space-y-1 list-disc list-inside">
+                        <li>Excluded from the <strong>Ladies</strong> lineup</li>
+                        <li>Not eligible for <strong>+15% / +20%</strong> Ladies &amp; Samsonite RED tier</li>
+                        <li>Instead gets <strong>50% OFF</strong> on buy 2 or more</li>
                     </ul>
                 </div>
 
@@ -776,92 +534,80 @@
                 <span class="text-[10px] sm:text-xs font-bold text-slate-400">CMBS Operations</span>
             </div>
             <h4 class="text-xs sm:text-sm font-extrabold tracking-wider">INTERNAL PROMOTION DEALS CENTRE</h4>
-            <p class="text-[10px] sm:text-xs text-slate-400">Prepared for LIVE Operations Team, Livestream Hosts & Moderators.</p>
+            <p class="text-[10px] sm:text-xs text-slate-400">Prepared for LIVE Operations Team, Livestream Hosts &amp; Moderators.</p>
 
             <div class="pt-4 border-t border-slate-800/80 max-w-2xl mx-auto text-[10px] sm:text-[11px] text-slate-400 leading-relaxed">
-                <p>⚠️ <strong>Disclaimer:</strong> Always verify final voucher availability and campaign mechanics directly on the Shopee seller back-end before communicating deals to customers during live broadcasts.</p>
+                <p>⚠️ <strong>Disclaimer:</strong> Always verify final campaign mechanics and discount eligibility directly on the Shopee seller back-end before communicating deals to customers during live broadcasts.</p>
             </div>
         </div>
     </footer>
 
     <!-- ─── SCRIPT ─── -->
     <script>
-        // ─── PRODUCT DATA (Samsonite models) ───
-        const products = [{
-            id: "modus",
-            name: "MODUS",
-            fullName: "Modus Spinner TSA",
-            sellerVc: true,
-            cofundVc: true,
-            flexiCombo: true,
-            bundle: true,
-            notes: "Hero bundle item with OCTOLITE. Eligible for 10% / 20% bundle discount."
+        // ─── MECHANICS MATRIX DATA (ordered: bundle first, then Malaysia Day) ───
+        const mechanics = [{
+            name: "MODUS + OCTOLITE",
+            fullName: "Bundle promo",
+            rm690: true,
+            buy2: "10% OFF",
+            buy3: "20% OFF",
+            notes: "Bundle promo starts 7 Aug, until further notice."
         }, {
-            id: "octolite",
-            name: "OCTOLITE",
-            fullName: "Octolite Spinner TSA",
-            sellerVc: true,
-            cofundVc: true,
-            flexiCombo: true,
-            bundle: true,
-            notes: "Hero bundle item with MODUS. Eligible for 10% / 20% bundle discount."
+            name: "STOREWIDE",
+            fullName: "All products",
+            rm690: true,
+            buy2: null,
+            buy3: null,
+            notes: "RM690 OFF with min. spend RM2,399 · 12–20 Sept."
         }, {
-            id: "rinia",
-            name: "RINIA",
-            fullName: "Rinia 3PC Set TSA",
-            sellerVc: true,
-            cofundVc: true,
-            flexiCombo: true,
-            bundle: false,
-            notes: "Eligible for Seller VC and Cofund VC."
+            name: "LADIES",
+            fullName: "Excluding Karissa Evo",
+            rm690: true,
+            buy2: "+15% OFF",
+            buy3: "+20% OFF",
+            notes: "Additional discount on top of the RM690 OFF storewide deal."
         }, {
-            id: "curio",
-            name: "CURIO",
-            fullName: "Curio Spinner TSA BO V2",
-            sellerVc: true,
-            cofundVc: true,
-            flexiCombo: true,
-            bundle: false,
-            notes: "Best-selling icon. Eligible for Seller VC and Cofund VC."
+            name: "SAMSONITE RED",
+            fullName: "Samsonite RED lineup",
+            rm690: true,
+            buy2: "+15% OFF",
+            buy3: "+20% OFF",
+            notes: "Same additional tier as Ladies — RM690 OFF storewide also applies."
         }, {
-            id: "ellen",
-            name: "ELLEN",
-            fullName: "Ellen Spinner TSA V2",
-            sellerVc: true,
-            cofundVc: true,
-            flexiCombo: true,
-            bundle: false,
-            notes: "Eligible for all standard vouchers."
+            name: "KARISSA EVO",
+            fullName: "Karissa Evo",
+            rm690: true,
+            buy2: "50% OFF",
+            buy3: "50% OFF",
+            notes: "Buy 2 or more = 50% OFF. Not part of the Ladies +15% / +20% tier."
         }];
 
-        // ─── SCRIPTS ───
+        // ─── SCRIPTS (ordered: bundle first, then Malaysia Day) ───
         const scripts = [{
-            title: "🔥 BUNDLE DEAL",
+            title: "🔥 MODUS + OCTOLITE BUNDLE",
+            tag: "Bundle",
+            script: "Buy 2 MODUS or OCTOLITE and get 10% OFF — buy 3 and save 20%! Promo starts 7 August!"
+        }, {
+            title: "🇲🇾 MALAYSIA DAY RM690",
             tag: "Hero Pitch",
-            script: "Buy 2 or more MODUS & OCTOLITE items and get 10% OFF — buy 3 and save 20%!"
+            script: "Malaysia Day'26 is here! Spend RM2,399 and get RM690 OFF — storewide, 12th to 20th September only!"
         }, {
-            title: "🎟️ NEW FOLLOWER",
-            tag: "Conversion",
-            script: "New follower? Get RM30 OFF with min RM300 spend — storewide!"
+            title: "👩 LADIES & SAMSONITE RED",
+            tag: "Additional OFF",
+            script: "Ladies and Samsonite RED — buy 2 and get an additional 15% OFF, buy 3 for an additional 20% OFF!"
         }, {
-            title: "💳 SELLER VC",
-            tag: "Voucher",
-            script: "Don't forget to claim your 9% Seller VC — no minimum spend!"
+            title: "✨ KARISSA EVO 50%",
+            tag: "Best Value",
+            script: "Karissa Evo special — buy 2 or more and enjoy a massive 50% OFF! Don't miss this one!"
         }, {
-            title: "🚚 FREE SHIPPING",
-            tag: "Shipping",
-            script: "Spend RM1,000 and enjoy FREE shipping capped at RM80 nationwide!"
+            title: "⏰ URGENCY CLOSER",
+            tag: "Urgency",
+            script: "The Malaysia Day'26 sale runs 12th to 20th September only — RM690 OFF storewide, grab it before it ends!"
         }, {
-            title: "💰 COFUND VC",
-            tag: "Voucher",
-            script: "Stack Cofund vouchers: 10% off RM300, 15% off RM599, 20% off RM999!"
-        }, {
-            title: "📦 FLEXI COMBO",
+            title: "🧳 STACK & SAVE",
             tag: "Mechanic",
-            script: "Buy 2 items and get 9% OFF automatically at checkout — exclude VB!"
+            script: "Stack your savings: RM690 OFF storewide when you spend RM2,399, plus an additional 15% to 20% OFF for Ladies and Samsonite RED!"
         }];
-
-        let currentDate = '6-8-9';
 
         window.addEventListener('DOMContentLoaded', () => {
             updateTimestamp();
@@ -876,51 +622,28 @@
             document.getElementById('last-updated-time').innerText = `${dateStr}, ${timeStr}`;
         }
 
-        function switchDate(dateKey) {
-            currentDate = dateKey;
-            const btn1 = document.getElementById('tab-d1');
-            const btn2 = document.getElementById('tab-d2');
-            const content1 = document.getElementById('date-content-6-8-9');
-            const content2 = document.getElementById('date-content-7-10-11');
-
-            if (dateKey === '6-8-9') {
-                btn1.className =
-                    "px-3 sm:px-4 py-1.5 sm:py-2 text-[10px] sm:text-xs md:text-sm font-bold rounded-xl transition-all bg-white text-at-shopee shadow-sm whitespace-nowrap";
-                btn2.className =
-                    "px-3 sm:px-4 py-1.5 sm:py-2 text-[10px] sm:text-xs md:text-sm font-bold rounded-xl transition-all text-slate-600 hover:text-slate-900 whitespace-nowrap";
-                content1.classList.remove('hidden');
-                content2.classList.add('hidden');
-            } else {
-                btn2.className =
-                    "px-3 sm:px-4 py-1.5 sm:py-2 text-[10px] sm:text-xs md:text-sm font-bold rounded-xl transition-all bg-white text-at-shopee shadow-sm whitespace-nowrap";
-                btn1.className =
-                    "px-3 sm:px-4 py-1.5 sm:py-2 text-[10px] sm:text-xs md:text-sm font-bold rounded-xl transition-all text-slate-600 hover:text-slate-900 whitespace-nowrap";
-                content2.classList.remove('hidden');
-                content1.classList.add('hidden');
+        function cell(value, isPrimary) {
+            if (value === true) {
+                return '<span class="text-emerald-600 text-base sm:text-lg">✓</span>';
             }
+            if (value === null || value === undefined) {
+                return '<span class="text-slate-300 text-base sm:text-lg">—</span>';
+            }
+            return `<span class="font-black ${isPrimary ? 'text-at-shopee' : 'text-emerald-700'} text-[10px] sm:text-xs whitespace-nowrap">${value}</span>`;
         }
 
         function renderMatrix() {
             const tbody = document.getElementById('product-matrix-tbody');
-            tbody.innerHTML = products.map(p => `
+            tbody.innerHTML = mechanics.map(m => `
                 <tr class="hover:bg-blue-50/50 transition-colors border-b border-slate-100">
                     <td class="p-2 sm:p-3">
-                        <div class="font-extrabold text-slate-900">${p.name}</div>
-                        <div class="text-[10px] text-slate-500">${p.fullName}</div>
+                        <div class="font-extrabold text-slate-900">${m.name}</div>
+                        <div class="text-[10px] text-slate-500">${m.fullName}</div>
                     </td>
-                    <td class="p-2 sm:p-3 text-center">
-                        ${p.sellerVc ? '<span class="text-emerald-600 text-base sm:text-lg">✓</span>' : '<span class="text-slate-300 text-base sm:text-lg">—</span>'}
-                    </td>
-                    <td class="p-2 sm:p-3 text-center">
-                        ${p.cofundVc ? '<span class="text-emerald-600 text-base sm:text-lg">✓</span>' : '<span class="text-slate-300 text-base sm:text-lg">—</span>'}
-                    </td>
-                    <td class="p-2 sm:p-3 text-center">
-                        ${p.flexiCombo ? '<span class="text-emerald-600 text-base sm:text-lg">✓</span>' : '<span class="text-slate-300 text-base sm:text-lg">—</span>'}
-                    </td>
-                    <td class="p-2 sm:p-3 text-center">
-                        ${p.bundle ? '<span class="bg-at-yellow text-at-navy font-extrabold text-[10px] px-2 py-0.5 rounded">BUNDLE</span>' : '<span class="text-slate-300 text-base sm:text-lg">—</span>'}
-                    </td>
-                    <td class="p-2 sm:p-3 text-[10px] sm:text-xs text-slate-600 max-w-xs">${p.notes}</td>
+                    <td class="p-2 sm:p-3 text-center">${cell(m.rm690, true)}</td>
+                    <td class="p-2 sm:p-3 text-center">${cell(m.buy2, false)}</td>
+                    <td class="p-2 sm:p-3 text-center">${cell(m.buy3, false)}</td>
+                    <td class="p-2 sm:p-3 text-[10px] sm:text-xs text-slate-600 max-w-xs">${m.notes}</td>
                 </tr>
             `).join('');
         }
